@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="post-container">
+    <h1>{{ post.title }}</h1>
+    <div class="post-content">
+        {% for photo in photos %}
+            {% if photo.position == loop.index0 %}
+                <div class="photo">
+                    <img src="{{ url_for('static', filename='uploads/' + photo.image_path) }}" 
+                        alt="{{ photo.caption or post.title }}">
+                    {% if photo.caption %}
+                    <div class="photo-caption">
+                        <p>{{ photo.caption }}</p>
+                    </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+        <p>{{ post.description }}</p>
+    </div>
+    <div class="back-link">
+        <a href="{{ url_for('index') }}">← Back to all posts</a>
+    </div>
+</div>
+{% endblock %}
