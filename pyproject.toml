@@ -1,0 +1,13 @@
+[project]
+name = "archaeoptyrex"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "flask>=3.1.0",
+    "flask-assets>=2.1.0",
+    "ipython>=8.31.0",
+    "pyscss>=1.4.0",
+    "werkzeug>=3.1.3",
+]

@@ -1,4 +1,0 @@
-Flask
-Flask-Assets
-PyScss
-# ...existing dependencies...
