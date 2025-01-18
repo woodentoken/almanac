@@ -2,10 +2,11 @@
 
 {% block content %}
 <div class="post-container">
+    <p>{{post.id}}</p>
     <h1>{{ post.title }}</h1>
     <div class="post-content">
         {% for photo in photos %}
-            {% if photo.position == loop.index0 %}
+            {% if photo.position == loop.index %}
                 <div class="photo">
                     <img src="{{ url_for('static', filename='uploads/' + photo.image_path) }}" 
                         alt="{{ photo.caption or post.title }}">
@@ -18,6 +19,35 @@
             {% endif %}
         {% endfor %}
         <p>{{ post.description }}</p>
+        {% for paragraph in paragraphs %}
+            <div class="paragraph">
+                <p>{{ paragraph.content }}</p>
+                <form method="post" action="{{ url_for('edit_paragraph', post_id=post.id, paragraph_id=paragraph.id) }}">
+                    <textarea name="content">{{ paragraph.content }}</textarea>
+                    <input type="hidden" name="post_id" value="{{ post.id }}">
+                    <input type="hidden" name="paragraph_id" value="{{ paragraph.id }}">
+                    <button type="submit">Update Paragraph</button>
+                </form>
+                <form method="post" action="{{ url_for('delete_paragraph', post_id=post.id, paragraph_id=paragraph.id) }}">
+                    <input type="hidden" name="post_id" value="{{ post.id }}">
+                    <input type="hidden" name="paragraph_id" value="{{ paragraph.id }}">
+                    <button type="submit">Delete Paragraph</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="add-paragraph">
+        <form method="post">
+            <textarea name="content" placeholder="Add a new paragraph"></textarea>
+            <button type="submit">Add Paragraph</button>
+        </form>
+    </div>
+    <div class="add-photo">
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="photo" accept="image/*">
+            <input type="text" name="caption" placeholder="Caption (optional)">
+            <button type="submit">Add Photo</button>
+        </form>
     </div>
     <div class="back-link">
         <a href="{{ url_for('index') }}">← Back to all posts</a>

@@ -22,7 +22,6 @@
                 {{ post.created_at }} • 
                 {{ post.photo_count }} photo{% if post.photo_count != 1 %}s{% endif %}
             </p>
-            <p><a href="{{ url_for('edit_post', post_id=post.id) }}" class="edit-post-link">Edit Post</a></p>
         </div>
     </div>
     {% endfor %}
