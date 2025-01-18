@@ -49,6 +49,11 @@
             <button type="submit">Add Photo</button>
         </form>
     </div>
+    <div class="delete-post">
+        <form method="post" action="{{ url_for('delete_post', post_id=post.id) }}">
+            <button type="submit">Delete Post</button>
+        </form>
+    </div>
     <div class="back-link">
         <a href="{{ url_for('index') }}">← Back to all posts</a>
     </div>

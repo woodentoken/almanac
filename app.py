@@ -151,6 +151,12 @@ def new_post():
 
     return render_template("new_post.html")
 
+@app.route("/post/<int:post_id>/delete", methods=["POST"])
+def delete_post(post_id):
+    Post.delete(post_id)
+    flash("Post and all associated photos and paragraphs deleted successfully!")
+    return redirect(url_for("index"))
+
 if __name__ == "__main__":
     os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
     init_db()

@@ -61,6 +61,8 @@ class Post:
     def delete(post_id):
         conn = sqlite3.connect("photoblog.db")
         cursor = conn.cursor()
+        cursor.execute("DELETE FROM paragraphs WHERE post_id = ?", (post_id,))
+        cursor.execute("DELETE FROM photos WHERE post_id = ?", (post_id,))
         cursor.execute("DELETE FROM posts WHERE id = ?", (post_id,))
         conn.commit()
         conn.close()
