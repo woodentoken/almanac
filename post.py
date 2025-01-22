@@ -1,6 +1,7 @@
 import sqlite3
 from paragraph import Paragraph
 from photo import Photo
+import datetime
 
 class Post:
     def __init__(self, id, title, description, created_at):

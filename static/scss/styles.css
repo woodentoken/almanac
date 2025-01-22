@@ -1,0 +1,148 @@
+html, body {
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  font-style: italic;
+  color: #000;
+  height: 100vh;
+  margin: 0px;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  font-style: normal;
+}
+
+.splash {
+  width: 100%;
+  position: relative;
+}
+.splash img, .splash p {
+  position: absolute;
+  height: 100vh;
+}
+.splash p {
+  padding: 10px;
+  color: #fff;
+  bottom: 0;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+.nav {
+  background-color: #000;
+}
+.nav .brand {
+  color: white;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+* {
+  border: red 1px dashed;
+}
+
+.container {
+  display: flex;
+  border: solid 0px black;
+  bottom: 20px;
+  height: 100vh;
+}
+.container .blade {
+  position: sticky;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  border: solid 1px black;
+  max-width: 350px;
+  min-width: 200px;
+}
+.container .blade div {
+  display: flex;
+  flex-direction: column;
+}
+.container .blade div a {
+  margin: 10px;
+}
+.container .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  border: solid 1px black;
+  width: 100%;
+}
+
+.post-card {
+  max-width: 1000px;
+  padding: 10px;
+  height: auto;
+  border: blue 5px solid;
+}
+.post-card p, .post-card h2, .post-card div {
+  border: solid 1px black;
+  margin: 0px;
+}
+.post-card .post-content {
+  padding: 0px;
+  margin: 0px;
+}
+.post-card .post-content .post-meta {
+  font-size: 0.8em;
+  padding: 0px;
+  margin: 0px;
+}
+
+.posts-grid {
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  border: green 5px solid;
+}
+.posts-grid .post-card {
+  max-width: 400px;
+}
+
+.post-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  flex-direction: column;
+  padding: 0px;
+  margin: 0px;
+}
+.post-container .post-content al .photo img {
+  max-width: 25%;
+}
+.post-container .post-content .paragraph {
+  margin-bottom: 0em;
+}
+.post-container .add-paragraph,
+.post-container .add-photo {
+  margin-top: 0em;
+}
+.post-container .delete-post {
+  margin-top: 0em;
+}
+.post-container .delete-post button {
+  background-color: red;
+  color: white;
+}
+
+.masonry {
+  display: grid;
+  padding: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  grid-template-rows: masonry;
+  gap: 50px;
+  align-tracks: stretch;
+}/*# sourceMappingURL=styles.css.map */

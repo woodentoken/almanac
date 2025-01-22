@@ -63,7 +63,15 @@ def get_db():
     return conn
 
 @app.route("/")
+def splash():
+    return render_template("splash.html")
+
+@app.route("/index")
 def index():
+    return render_template("index.html")
+
+@app.route("/blog")
+def blog():
     db = get_db()
     posts = db.execute("""
         SELECT p.id, 
@@ -78,8 +86,11 @@ def index():
         ORDER BY p.created_at DESC
     """).fetchall()
     db.close()
-    return render_template("index.html", posts=posts)
+    return render_template("blog.html", posts=posts)
 
+@app.route("/about")
+def about():
+    return render_template("about.html")
 
 @app.route("/post/<int:post_id>", methods=["GET", "POST"])
 def view_post(post_id):
