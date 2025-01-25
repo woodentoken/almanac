@@ -3,22 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Photoblog{% endblock %}</title>
+    <title>{% block title %}lowercase photography{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='scss/styles.css') }}">
-    <script src="../static/script.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='scss/styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="../static/splash.js"></script>
 </head>
 
 <body class="splash" id="splash">
     <div class="menu-container">
         <div class="title">
-            <a href="{{ url_for('index') }}" class="new-post-button">Brass Eye</a>
+            <h3>lowercase photography</h3>
         </div>
         <div class="space">
             
         </div>
-        <div>
-        <a href="{{ url_for('index') }}" class="new-post-button">enter</a>
-        </div>
+        <a href="{{ url_for('series') }}" class="new-post-button">series</a>
+        <a href="{{ url_for('portfolio') }}" class="new-post-button">portfolio</a>
+        <a href="{{ url_for('about') }}" class="brand">info</a>
     <div>
 </body>
 </html>

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="masonry">
+    <img src="{{ url_for('static', filename='uploads/20250115_214906_KKB00768.jpg') }}" alt="Photo 1">
+    <img src="{{ url_for('static', filename='uploads/20250115_214906_KKB00768.jpg') }}" alt="Photo 1">
+    <img src="{{ url_for('static', filename='uploads/20250115_214906_KKB06201.jpg') }}" alt="Photo 1">
+    <img src="{{ url_for('static', filename='uploads/20250115_214906_KKB06201.jpg') }}" alt="Photo 1">
+    <img src="{{ url_for('static', filename='uploads/20250115_214827_KKB02098.jpg') }}" alt="Photo 1">
+</div>
+
+{# <div class="posts-grid">
+    {% for post in posts %}
+    <div class="post-card">
+        {% if post.cover_image %}
+        <a href="{{ url_for('view_post', post_id=post.id) }}">
+            <img src="{{ url_for('static', filename='uploads/' + post.cover_image) }}" 
+                alt="{{ post.title }}"
+                class="post-image">
+        </a>
+        {% endif %}
+        {#<div class="post-content">
+            <h2>
+                <a href="{{ url_for('view_post', post_id=post.id) }}">
+                    {{ post.title }}
+                </a>
+            </h2>
+            <p>{{ post.description }}</p>
+            <p class="post-meta">
+                {{ post.created_at }}
+                {{ post.photo_count }} photo{% if post.photo_count != 1 %}s{% endif %}
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+</div> #}
+{% endblock %}

@@ -1,7 +1,7 @@
 html, body {
-  font-family: "Poppins", sans-serif;
-  font-size: 24px;
-  font-weight: 700;
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
   color: #000;
   height: 100vh;
   margin: 0px;
@@ -21,32 +21,89 @@ a {
   background-color: #000;
 }
 
+.textcontent2 {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.info {
+  display: flex;
+  justify-content: left;
+  max-width: 400px;
+  font-size: 16px;
+  margin: 0px 0px 15px 0px;
+}
+
+.textcontent {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+}
+.textcontent ul {
+  margin: 0px 0px 15px 0px;
+}
+.textcontent img {
+  max-width: 400px;
+  height: auto;
+  text-align: center;
+  margin: 0px 0px 15px 0px;
+}
+.textcontent li {
+  list-style-type: circle;
+  font-size: 16px;
+}
+.textcontent .information-container {
+  min-width: 200px;
+  display: flex;
+  padding: 0px 20px;
+  flex-direction: column;
+}
+.textcontent .information-container .info_end {
+  font-size: 16px;
+  margin-top: auto;
+}
+
+@media (max-width: 1200px) {
+  .textcontent {
+    flex-direction: column;
+    padding: 0px;
+  }
+}
+.emphasis {
+  font-weight: 700;
+}
+
 .splash {
   background-color: #000;
   background-image: url("../uploads/20250115_214906_KKB06201.jpg");
-  background-size: cover;
+  background-size: 100%;
   background-position: center;
-  width: 100%;
-  height: 100vh;
+  background-repeat: no-repeat;
   display: flex;
-  justify-content: end;
+  justify-content: start;
   flex-direction: column;
 }
 .splash .menu-container {
   display: flex;
   justify-content: end;
   align-items: center;
-  margin: 20px;
+  margin: 28px 72px;
   font-size: 48px;
 }
 .splash .menu-container .title {
-  color: #000;
+  color: #fff;
 }
 .splash .menu-container .space {
   margin: auto;
 }
 .splash .menu-container a {
+  font-size: 32px;
   color: #fff;
+  margin: 0px 20px;
+}
+.splash .menu-container h3 {
+  margin: 0px;
 }
 
 img {
@@ -54,29 +111,35 @@ img {
   height: auto;
 }
 
-* {
-  border: red 1px dashed;
-}
-
 .container {
   display: flex;
-  border: solid 0px black;
-  bottom: 20px;
-  height: 100vh;
+  flex-direction: row;
+  height: 100%;
 }
 .container .blade {
   position: sticky;
+  top: 0;
+  left: 0;
   padding: 50px;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  border: solid 1px black;
-  max-width: 350px;
-  min-width: 200px;
+  border-right: solid 3px black;
+  max-width: 300px;
+  min-width: 150px;
+}
+.container .blade .title {
+  position: sticky;
+  top: 0;
+}
+.container .blade .main-menu {
+  position: sticky;
+  top: 175px;
 }
 .container .blade div {
   display: flex;
+  top: 0;
   flex-direction: column;
 }
 .container .blade div a {
@@ -87,7 +150,6 @@ img {
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  border: solid 1px black;
   width: 100%;
 }
 
@@ -150,9 +212,18 @@ img {
 
 .masonry {
   display: grid;
-  padding: 50px;
+  padding: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-rows: masonry;
+  gap: 30px;
+  align-tracks: stretch;
+}
+
+.masonry2 {
+  display: grid;
+  padding: 25px;
   grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
   grid-template-rows: masonry;
-  gap: 50px;
+  gap: 25px;
   align-tracks: stretch;
 }/*# sourceMappingURL=styles.css.map */

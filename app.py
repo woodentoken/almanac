@@ -66,9 +66,17 @@ def get_db():
 def splash():
     return render_template("splash.html")
 
-@app.route("/index")
-def index():
-    return render_template("index.html")
+@app.route("/series")
+def series():
+    return render_template("series.html")
+
+@app.route("/portfolio")
+def portfolio():
+    return render_template("portfolio.html")
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
 
 @app.route("/blog")
 def blog():
