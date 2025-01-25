@@ -7,7 +7,6 @@ html, body {
     font-family: $font-stack;
     font-size: 24px;
     font-weight: 700;
-    font-style: italic;
     color: $primary-color;
     height: 100vh;
     margin: 0px;
@@ -18,39 +17,6 @@ h1, h2, h3 {
     font-style: normal;
 }
 
-.splash {
-    width: 100%;
-    position: relative;
-
-    img, p {
-        position: absolute;
-        // width: 100%;
-        height: 100vh;
-    }
-    p {
-        padding: 10px;
-        color: #fff;
-        bottom: 0;
-    }
-
-    // h2 {
-    //     position: absolute;
-    //     font-size: 2em;
-    //     font-weight: 700;
-    //     font-style: italic;
-    //     bottom: 0;
-    //     left: 0;
-    // }
-    // .bg {
-    //     background-image: "static\uploads\20250115_214827_KKB02098.jpg";
-    //     height: 100vh;
-    //     position: absolute;
-    //     background-position: center;
-    //     background-repeat: no-repeat;
-    //     background-size: cover;
-    // }
-}
-
 a {
     color: $secondary-color;
     text-decoration: none;
@@ -58,8 +24,33 @@ a {
 
 .nav {
     background-color: $secondary-color;
-    .brand {
-        color: white;
+}
+
+.splash {
+    background-color: $secondary-color;
+    background-image: url('../uploads/20250115_214906_KKB06201.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    .menu-container {
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            margin: 20px;
+            font-size: 48px;
+        .title {
+            color: $primary-color;
+        }
+        .space {
+            margin: auto;
+        }
+        a {
+            color: #fff;
+        }
     }
 }
 
