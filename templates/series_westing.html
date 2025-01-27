@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<script src="{{ url_for('static', filename='gallery.js') }}"></script>
+
+<div class="series">
+    <div class="series-title">Westing</div>
+    <div class="series-blurb">by musket and sextant.</div>
+</div>
+
+<div class="masonry">
+    <img style="grid-column: span 3" src="{{ url_for('static', filename='uploads/westing/westing_7.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/westing/westing_1.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/westing/westing_2.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/westing/westing_4.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/westing/westing_5.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/westing/westing_8.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/westing/westing_3.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img style="grid-column: span 2" src="{{ url_for('static', filename='uploads/westing/westing_6.jpg') }}" alt="Photo 1" class="gallery-image">
+</div>
+
+
+<div id="imageModal" class="modal" style="display: none;">
+    <span class="close">&times;</span>
+    <button id="prevBtn" class="nav-btn">previous</button>
+    <img class="modal-content" id="fullImage">
+    <button id="nextBtn" class="nav-btn">next</button>
+</div>
+
+{% endblock %}

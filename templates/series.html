@@ -1,13 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="masonry2">
-    <a href="{{ url_for('series')}}">
-        <img src="{{ url_for('static', filename='uploads/20250115_214906_KKB00768.jpg') }}" alt="Photo 1">
+<div class="masonry-bigger">
+
+    <div class="image-container">
+        <a href="{{ url_for('series_japan')}}">
+            <img src="{{ url_for('static', filename='uploads/20250115_214906_KKB00768.jpg') }}" alt="Photo of Mt. Fuji from the train.">
+            <div class="hover-text">Japan</div>
+        </a>
+    </div>
+
+    <div class="image-container">
+    <a href="{{ url_for('series_westing')}}">
+        <img src="{{ url_for('static', filename='uploads/westing/westing_1.jpg') }}" alt="Photo 2">
+        <div class="hover-text">Westing</div>
     </a>
-    <a href="{{ url_for('series')}}">
-        <img src="{{ url_for('static', filename='uploads/20250115_214906_KKB00768.jpg') }}" alt="Photo 1">
-    </a>
+    </div>
+
 </div>
 
 {% endblock %}

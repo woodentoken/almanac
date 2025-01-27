@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<script src="{{ url_for('static', filename='gallery.js') }}"></script>
+
+<div class="series">
+    <div class="series-title">Japan</div>
+    <div class="series-blurb">i travelled to Japan for two weeks prior to starting graduate school. these are some of my favorite photos from that trip.</div>
+</div>
+
+<div class="masonry">
+    <img src="{{ url_for('static', filename='uploads/japan/japan_1.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/japan/japan_6.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/japan/japan_3.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/japan/japan_7.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/japan/japan_4.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img style="grid-column: span 2" src="{{ url_for('static', filename='uploads/japan/japan_5.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/japan/japan_8.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/japan/japan_9.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/japan/japan_10.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/japan/japan_11.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/japan/japan_12.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/japan/japan_13.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/japan/japan_14.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/japan/japan_15.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/japan/japan_16.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/japan/japan_17.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/japan/japan_18.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/japan/japan_19.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/japan/japan_20.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/japan/japan_21.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/japan/japan_22.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img style="grid-column: span 2" src="{{ url_for('static', filename='uploads/japan/japan_23.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/japan/japan_24.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/japan/japan_25.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/japan/japan_2.jpg') }}" alt="Photo 1" class="gallery-image">
+</div>
+
+<div id="imageModal" class="modal" style="display: none;">
+    <span class="close">&times;</span>
+    <button id="prevBtn" class="nav-btn">previous</button>
+    <img class="modal-content" id="fullImage">
+    <button id="nextBtn" class="nav-btn">next</button>
+</div>
+
+{% endblock %}

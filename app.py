@@ -70,6 +70,14 @@ def splash():
 def series():
     return render_template("series.html")
 
+@app.route("/series/japan")
+def series_japan():
+    return render_template("series_japan.html")
+
+@app.route("/series/westing")
+def series_westing():
+    return render_template("series_westing.html")
+
 @app.route("/portfolio")
 def portfolio():
     return render_template("portfolio.html")

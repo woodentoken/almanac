@@ -1,37 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
+<script src="{{ url_for('static', filename='gallery.js') }}"></script>
+
 <div class="masonry">
-    <img src="{{ url_for('static', filename='uploads/20250115_214906_KKB00768.jpg') }}" alt="Photo 1">
-    <img src="{{ url_for('static', filename='uploads/20250115_214906_KKB00768.jpg') }}" alt="Photo 1">
-    <img src="{{ url_for('static', filename='uploads/20250115_214906_KKB06201.jpg') }}" alt="Photo 1">
-    <img src="{{ url_for('static', filename='uploads/20250115_214906_KKB06201.jpg') }}" alt="Photo 1">
-    <img src="{{ url_for('static', filename='uploads/20250115_214827_KKB02098.jpg') }}" alt="Photo 1">
+    <img style="grid-column: span 2" src="{{ url_for('static', filename='uploads/portfolio/portfolio_9.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/portfolio/portfolio_1.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/portfolio/portfolio_2.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/portfolio/portfolio_3.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/portfolio/portfolio_4.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/portfolio/portfolio_5.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/portfolio/portfolio_6.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/portfolio/portfolio_7.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/portfolio/portfolio_8.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/portfolio/portfolio_10.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/portfolio/portfolio_11.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/portfolio/portfolio_12.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/portfolio/portfolio_13.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/portfolio/portfolio_14.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/portfolio/portfolio_15.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/portfolio/portfolio_16.jpg') }}" alt="Photo 1" class="gallery-image">
+    <img src="{{ url_for('static', filename='uploads/portfolio/portfolio_17.jpg') }}" alt="Photo 1" class="gallery-image">
 </div>
 
-{# <div class="posts-grid">
-    {% for post in posts %}
-    <div class="post-card">
-        {% if post.cover_image %}
-        <a href="{{ url_for('view_post', post_id=post.id) }}">
-            <img src="{{ url_for('static', filename='uploads/' + post.cover_image) }}" 
-                alt="{{ post.title }}"
-                class="post-image">
-        </a>
-        {% endif %}
-        {#<div class="post-content">
-            <h2>
-                <a href="{{ url_for('view_post', post_id=post.id) }}">
-                    {{ post.title }}
-                </a>
-            </h2>
-            <p>{{ post.description }}</p>
-            <p class="post-meta">
-                {{ post.created_at }}
-                {{ post.photo_count }} photo{% if post.photo_count != 1 %}s{% endif %}
-            </p>
-        </div>
-    </div>
-    {% endfor %}
-</div> #}
+<div id="imageModal" class="modal" style="display: none;">
+    <span class="close">&times;</span>
+    <button id="prevBtn" class="nav-btn">previous</button>
+    <img class="modal-content" id="fullImage">
+    <button id="nextBtn" class="nav-btn">next</button>
+</div>
+
 {% endblock %}

@@ -2,28 +2,27 @@
 
 {% block content %}
 
-<div class="textcontent2">
+<div class="wrapper">
+<div class="text-heading">
     <p class="info">Welcome</p>
 
-<div class="textcontent">
+<div class="text-content">
     <div class="information-container">
-        <p class="info">I am a photographer and engineer living in Sacramento, California. I grew up in northwestern Maryland and have slowly been migrating west as an adult.
-            I am currently a doctoral student in the Department of Mechanical and Aerospace Engineering at the University of California, Davis.
-        </p>
 
         <img src="{{ url_for('static', filename='uploads/20250115_214827_KKB02098.jpg') }}" alt="Photo 1">
+        <div class="caption">me in Hokkaido, Japan 2023</div>
 
-        <p class="info">I became interested in photography by shooting film on a Minolta X-7 as a teenager,
-            but have transitioned to digital photography as an adult. I am particularly interested in black and white and impressionistic photography. 
+        <p class="info">I am a photographer and engineer living in Sacramento, California. I grew up in northwestern Maryland and have slowly been migrating west as an adult.
+            I am currently a doctoral student studying aerospace engineering.
         </p>
+
     </div>
 
     <div class="information-container">
-        <p class="info">
-            I am available for portraits, wedding, and event photography. Please reach out to discuss your needs.
+        <p class="info">I became interested in photography by shooting film on a Minolta X-7 as a teenager,
+            but have transitioned to primarily digital photography. I am particularly interested in black and white and impressionistic photography. 
         </p>
-
-        <p class="info">
+        {#<p class="info">
             I shoot with an Sony alpha 7III with a variety of modern and vintage lenses.
         </p>
         <ul>
@@ -34,13 +33,22 @@
         </ul>
         <p class="info">
             Additionally, I have a variety of filters and use a GODOX V860II-S flash to control environmental lighting.
+        </p>#}
+
+        <p class="info">
+            I am available for portraits, wedding, and event photography. As an amateur, I can assure you that I am quite cheap.
+        </p>
+
+        <p class="info">
+            I built this site by hand without a content management system.
         </p>
 
         <p class="info_end">
-            please contact me at <span  class="emphasis">kaleb.bordner@gmail.com</span>
+                    for rates and inquiries please contact me via email: <span class="emphasis">kaleb.bordner@gmail.com</span>
         </p>
     </div>
 
+</div>
 </div>
 </div>
 
