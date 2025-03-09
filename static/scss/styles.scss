@@ -172,25 +172,27 @@ img {
     height: 100%;
     .blade {
         position: sticky;
-        top: 0;
-        left: 0;
+        top: 0px;
+        left: 0px;
         padding: 50px;
         display: flex;
         flex-direction: column;
         justify-content: start;
         align-items: start;
-        border-right: solid 3px black;
         max-width: 300px;
         min-width: 150px;
         .title {
-            position: sticky;
-            top: 0;
+            position: fixed;
+            max-width: 250px;
+            top: 42px;
+            left: 42px;
             font-weight: 700;
             font-size: 32px;
         }
         .main-menu {
-            position: sticky;
-            top: 175px;
+            position: fixed;
+            left: 30px;
+            top: 142px;
         }
         div {
             display: flex;
