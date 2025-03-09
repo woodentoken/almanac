@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "build": "sass static/scss:static/css"
+  },
+  "devDependencies": {
+    "sass": "^1.85.1"
+  }
+}
