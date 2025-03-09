@@ -21,6 +21,24 @@ a {
   background-color: #000;
 }
 
+.collapse {
+  background-color: #a2de96;
+  border: none;
+  outline: none;
+  font-size: 25px;
+}
+
+.active,
+.collapse:hover {
+  background-color: #438a5e;
+}
+
+.text {
+  background-color: #e1ffc2;
+  display: none;
+  font-size: 20px;
+}
+
 .text-heading {
   display: flex;
   flex-direction: column;
@@ -367,7 +385,7 @@ a {
 
 .nav-btn {
   top: 50%;
-  width: 50%;
+  margin: auto 20px;
   height: 100%;
   background: none;
   border: none;
