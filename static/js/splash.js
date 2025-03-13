@@ -3,11 +3,11 @@ var i = 0;
 var images = []; //array
 var time = 7777; // time in millie seconds
 
-images[0] = "url(../static/uploads/crane.jpg)";
-images[1] = "url(../static/uploads/palm.jpg)";
-images[2] =  "url(../static/uploads/heron.jpg)";
-images[3] = "url(../static/uploads/fog.jpg)";
-images[4] =  "url(../static/uploads/water.jpg)";
+images[0] = "url(../static/images/crane.jpg)";
+images[1] = "url(../static/images/palm.jpg)";
+images[2] =  "url(../static/images/heron.jpg)";
+images[3] = "url(../static/images/fog.jpg)";
+images[4] =  "url(../static/images/water.jpg)";
 
 
 function changeImage() {
