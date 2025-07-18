@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   font-family: "Atkinson Hyperlegible", sans-serif;
   font-size: 20px;
   font-weight: 400;
@@ -8,7 +9,9 @@ html, body {
   padding: 0;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-style: normal;
 }
 
@@ -121,7 +124,6 @@ a {
 
 .splash {
   background-color: #000;
-  background-image: url("../uploads/20250115_214906_KKB06201.jpg");
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -139,7 +141,7 @@ a {
 .splash .menu-container .title {
   color: #fff;
 }
-.splash .menu-container .space {
+.splash .menu-container .space styles {
   margin: auto;
 }
 .splash .menu-container a {
@@ -170,21 +172,22 @@ img {
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  max-width: 300px;
+  max-width: 250px;
   min-width: 150px;
 }
 .container .blade .title {
   position: fixed;
-  max-width: 250px;
   top: 42px;
-  left: 42px;
+  left: 28px;
   font-weight: 700;
   font-size: 32px;
+  max-width: 250px;
 }
 .container .blade .main-menu {
   position: fixed;
-  left: 30px;
-  top: 142px;
+  left: 20px;
+  top: 150px;
+  font-size: 24px;
 }
 .container .blade div {
   display: flex;
@@ -203,12 +206,14 @@ img {
 }
 
 .post-card {
-  max-width: 1000px;
+  max-width: JAPAN;
   padding: 10px;
   height: auto;
   border: blue 5px solid;
 }
-.post-card p, .post-card h2, .post-card div {
+.post-card p,
+.post-card h2,
+.post-card div {
   border: solid 1px black;
   margin: 0px;
 }

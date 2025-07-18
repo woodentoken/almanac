@@ -2,8 +2,9 @@ import os
 import sqlite3
 from datetime import datetime
 from paragraph import Paragraph
-from photo import Photo
 from post import Post
+from livereload import Server
+from dotenv import load_dotenv
 
 from flask import Flask, flash, redirect, render_template, request, url_for
 from werkzeug.utils import secure_filename
@@ -11,6 +12,17 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "your-secret-key-here"
 app.config["UPLOAD_FOLDER"] = "static/uploads"
+load_dotenv()
+
+# Always enable Jinja auto-reload in development
+if os.environ.get("FLASK_ENV") == "development":
+    print("loaded .env - running in development mode with live reload enabled.")
+    app.config["TEMPLATES_AUTO_RELOAD"] = True
+    app.jinja_env.auto_reload = True
+    USE_LIVERELOAD = True
+else:
+    USE_LIVERELOAD = False
+
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "gif"}
 
 
@@ -62,29 +74,36 @@ def get_db():
     conn.row_factory = sqlite3.Row
     return conn
 
+
 @app.route("/")
 def splash():
     return render_template("splash.html")
+
 
 @app.route("/series")
 def series():
     return render_template("series.html")
 
+
 @app.route("/series/japan")
 def series_japan():
     return render_template("series_japan.html")
+
 
 @app.route("/series/westing")
 def series_westing():
     return render_template("series_westing.html")
 
+
 @app.route("/portfolio")
 def portfolio():
     return render_template("portfolio.html")
 
+
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
+
 
 @app.route("/blog")
 def blog():
@@ -104,16 +123,20 @@ def blog():
     db.close()
     return render_template("blog.html", posts=posts)
 
+
 @app.route("/about")
 def about():
     return render_template("about.html")
+
 
 @app.route("/post/<int:post_id>", methods=["GET", "POST"])
 def view_post(post_id):
     db = get_db()
     post = db.execute("SELECT * FROM posts WHERE id = ?", [post_id]).fetchone()
     photos = db.execute("SELECT * FROM photos WHERE post_id = ?", [post_id]).fetchall()
-    paragraphs = db.execute("SELECT * FROM paragraphs WHERE post_id = ?", [post_id]).fetchall()
+    paragraphs = db.execute(
+        "SELECT * FROM paragraphs WHERE post_id = ?", [post_id]
+    ).fetchall()
 
     if request.method == "POST":
         if "content" in request.form:
@@ -121,7 +144,7 @@ def view_post(post_id):
             position = len(paragraphs) + 1
             db.execute(
                 "INSERT INTO paragraphs (post_id, content, position) VALUES (?, ?, ?)",
-                [post_id, content, position]
+                [post_id, content, position],
             )
             flash("Paragraph added successfully!")
         elif "photo" in request.files:
@@ -137,7 +160,7 @@ def view_post(post_id):
 
                 db.execute(
                     "INSERT INTO photos (post_id, image_path, caption, position) VALUES (?, ?, ?, ?)",
-                    [post_id, filename, caption, position]
+                    [post_id, filename, caption, position],
                 )
                 flash("Photo added successfully!")
         db.commit()
@@ -145,7 +168,10 @@ def view_post(post_id):
         return redirect(url_for("view_post", post_id=post_id))
 
     db.close()
-    return render_template("view_post.html", post=post, photos=photos, paragraphs=paragraphs)
+    return render_template(
+        "view_post.html", post=post, photos=photos, paragraphs=paragraphs
+    )
+
 
 @app.route("/paragraph/<int:post_id><int:paragraph_id>/edit", methods=["POST"])
 def edit_paragraph(post_id, paragraph_id):
@@ -153,15 +179,16 @@ def edit_paragraph(post_id, paragraph_id):
     flash(f"Paragraph of post {post_id} updated successfully.")
     return redirect(request.referrer)
 
+
 @app.route("/paragraph/<int:post_id><int:paragraph_id>/delete", methods=["POST"])
 def delete_paragraph(post_id, paragraph_id):
     Paragraph.delete(paragraph_id)
     flash(f"Paragraph of post {post_id} deleted successfully.")
     return redirect(request.referrer)
 
+
 @app.route("/post/new", methods=["GET", "POST"])
 def new_post():
-    
     if request.method == "POST":
         db = get_db()
         cursor = db.execute(
@@ -178,13 +205,22 @@ def new_post():
 
     return render_template("new_post.html")
 
+
 @app.route("/post/<int:post_id>/delete", methods=["POST"])
 def delete_post(post_id):
     Post.delete(post_id)
     flash("Post and all associated photos and paragraphs deleted successfully!")
     return redirect(url_for("index"))
 
+
 if __name__ == "__main__":
-    os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
-    init_db()
-    app.run(debug=True)
+    if USE_LIVERELOAD:
+        from livereload import Server
+
+        server = Server(app.wsgi_app)
+        server.watch("templates/**/*.html")
+        server.watch("static/css/**/*.css")
+        server.watch("static/js/**/*.js")
+        server.serve(port=5500)
+    else:
+        app.run(host="0.0.0.0", port=8000)  # Or use gunicorn in production
