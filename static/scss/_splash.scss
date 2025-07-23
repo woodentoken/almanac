@@ -1,0 +1,40 @@
+.splash {
+  background-color: $secondary-color;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+
+  .menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 28px 72px;
+    font-size: 48px;
+
+    .title {
+      color: #fff;
+    }
+
+    .space styles {
+      margin: 10px 0px 0px 0px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+
+    a {
+      font-size: 28px;
+      color: #fff;
+      margin: 0px 20px;
+    }
+
+    h3 {
+      margin: 0px;
+    }
+  }
+}
