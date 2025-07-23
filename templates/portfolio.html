@@ -4,23 +4,24 @@
 <script src="{{ url_for('static', filename='js/gallery.js') }}"></script>
 
 <div class="masonry">
-    <img style="grid-column: span 2" src="{{ url_for('static', filename='images/portfolio/portfolio_9.jpg') }}" alt="Photo 1" class="gallery-image">
-    <img src="{{ url_for('static', filename='images/portfolio/portfolio_1.jpg') }}" alt="Photo 1" class="gallery-image">
-    <img src="{{ url_for('static', filename='images/portfolio/portfolio_2.jpg') }}" alt="Photo 1" class="gallery-image">
-    <img src="{{ url_for('static', filename='images/portfolio/portfolio_3.jpg') }}" alt="Photo 1" class="gallery-image">
-    <img src="{{ url_for('static', filename='images/portfolio/portfolio_4.jpg') }}" alt="Photo 1" class="gallery-image">
-    <img src="{{ url_for('static', filename='images/portfolio/portfolio_5.jpg') }}" alt="Photo 1" class="gallery-image">
-    <img src="{{ url_for('static', filename='images/portfolio/portfolio_6.jpg') }}" alt="Photo 1" class="gallery-image">
-    <img src="{{ url_for('static', filename='images/portfolio/portfolio_7.jpg') }}" alt="Photo 1" class="gallery-image">
-    <img src="{{ url_for('static', filename='images/portfolio/portfolio_8.jpg') }}" alt="Photo 1" class="gallery-image">
-    <img src="{{ url_for('static', filename='images/portfolio/portfolio_10.jpg') }}" alt="Photo 1" class="gallery-image">
-    <img src="{{ url_for('static', filename='images/portfolio/portfolio_11.jpg') }}" alt="Photo 1" class="gallery-image">
-    <img src="{{ url_for('static', filename='images/portfolio/portfolio_12.jpg') }}" alt="Photo 1" class="gallery-image">
-    <img src="{{ url_for('static', filename='images/portfolio/portfolio_13.jpg') }}" alt="Photo 1" class="gallery-image">
-    <img src="{{ url_for('static', filename='images/portfolio/portfolio_14.jpg') }}" alt="Photo 1" class="gallery-image">
-    <img src="{{ url_for('static', filename='images/portfolio/portfolio_15.jpg') }}" alt="Photo 1" class="gallery-image">
-    <img src="{{ url_for('static', filename='images/portfolio/portfolio_16.jpg') }}" alt="Photo 1" class="gallery-image">
-    <img src="{{ url_for('static', filename='images/portfolio/portfolio_17.jpg') }}" alt="Photo 1" class="gallery-image">
+    <div class="grid-sizer"></div>
+    <img src="{{ url_for('static', filename='images/portfolio/portfolio_9.jpg') }}" alt="Photo 9" class="grid-item grid-item--bigger" loading="lazy">
+    <img src="{{ url_for('static', filename='images/portfolio/portfolio_1.jpg') }}" alt="Photo 1" class="grid-item" loading="lazy">
+    <img src="{{ url_for('static', filename='images/portfolio/portfolio_2.jpg') }}" alt="Photo 2" class="grid-item" loading="lazy">
+    <img src="{{ url_for('static', filename='images/portfolio/portfolio_3.jpg') }}" alt="Photo 3" class="grid-item" loading="lazy">
+    <img src="{{ url_for('static', filename='images/portfolio/portfolio_4.jpg') }}" alt="Photo 4" class="grid-item" loading="lazy">
+    <img src="{{ url_for('static', filename='images/portfolio/portfolio_5.jpg') }}" alt="Photo 5" class="grid-item" loading="lazy">
+    <img src="{{ url_for('static', filename='images/portfolio/portfolio_6.jpg') }}" alt="Photo 6" class="grid-item" loading="lazy">
+    <img src="{{ url_for('static', filename='images/portfolio/portfolio_7.jpg') }}" alt="Photo 7" class="grid-item" loading="lazy">
+    <img src="{{ url_for('static', filename='images/portfolio/portfolio_8.jpg') }}" alt="Photo 8" class="grid-item" loading="lazy">
+    <img src="{{ url_for('static', filename='images/portfolio/portfolio_10.jpg') }}" alt="Photo 10" class="grid-item" loading="lazy">
+    <img src="{{ url_for('static', filename='images/portfolio/portfolio_11.jpg') }}" alt="Photo 11" class="grid-item" loading="lazy">
+    <img src="{{ url_for('static', filename='images/portfolio/portfolio_12.jpg') }}" alt="Photo 12" class="grid-item" loading="lazy">
+    <img src="{{ url_for('static', filename='images/portfolio/portfolio_13.jpg') }}" alt="Photo 13" class="grid-item" loading="lazy">
+    <img src="{{ url_for('static', filename='images/portfolio/portfolio_14.jpg') }}" alt="Photo 14" class="grid-item" loading="lazy">
+    <img src="{{ url_for('static', filename='images/portfolio/portfolio_15.jpg') }}" alt="Photo 15" class="grid-item" loading="lazy">
+    <img src="{{ url_for('static', filename='images/portfolio/portfolio_16.jpg') }}" alt="Photo 16" class="grid-item" loading="lazy">
+    <img src="{{ url_for('static', filename='images/portfolio/portfolio_17.jpg') }}" alt="Photo 17" class="grid-item" loading="lazy">
 </div>
 
 <div id="imageModal" class="modal" style="display: none;">
@@ -28,6 +29,38 @@
     <button id="prevBtn" class="nav-btn">previous</button>
     <img class="modal-content" id="fullImage">
     <button id="nextBtn" class="nav-btn">next</button>
+    <div id="caption"></div>
 </div>
+
+<script src="{{ url_for('static', filename='js/masonry.pkgd.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/imagesloaded.pkgd.min.js') }}"></script>
+<script>
+let msnry; // Declare in outer scope
+
+document.addEventListener('DOMContentLoaded', function () {
+    const grid = document.querySelector('.masonry');
+    const gutterSize = window.innerWidth < 800 ? 16 : 32;
+
+    msnry = new Masonry(grid, {
+        itemSelector: '.grid-item',
+        columnWidth: '.grid-sizer',
+        gutter: gutterSize,
+        percentPosition: true,
+        transitionDuration: '0s',
+    });
+
+    imagesLoaded(grid, () => {
+        msnry.layout();
+    });
+});
+
+window.addEventListener('resize', () => {
+
+  if (msnry) {
+    console.log("masonry layout")
+    msnry.layout();
+  }
+});
+</script>
 
 {% endblock %}
