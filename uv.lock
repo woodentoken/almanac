@@ -13,6 +13,7 @@ source = { virtual = "." }
 dependencies = [
     { name = "flask", marker = "(platform_machine != 'aarch64' and python_full_version >= '3.13') or (platform_system != 'Linux' and python_full_version >= '3.13') or platform_system == 'Darwin' or (platform_machine == 'aarch64' and platform_system == 'Linux')" },
     { name = "flask-assets", marker = "(platform_machine != 'aarch64' and python_full_version >= '3.13') or (platform_system != 'Linux' and python_full_version >= '3.13') or platform_system == 'Darwin' or (platform_machine == 'aarch64' and platform_system == 'Linux')" },
+    { name = "gunicorn", marker = "(platform_machine != 'aarch64' and python_full_version >= '3.13') or (platform_system != 'Linux' and python_full_version >= '3.13') or platform_system == 'Darwin' or (platform_machine == 'aarch64' and platform_system == 'Linux')" },
     { name = "ipython", marker = "(platform_machine != 'aarch64' and python_full_version >= '3.13') or (platform_system != 'Linux' and python_full_version >= '3.13') or platform_system == 'Darwin' or (platform_machine == 'aarch64' and platform_system == 'Linux')" },
     { name = "livereload", marker = "(platform_machine != 'aarch64' and python_full_version >= '3.13') or (platform_system != 'Linux' and python_full_version >= '3.13') or platform_system == 'Darwin' or (platform_machine == 'aarch64' and platform_system == 'Linux')" },
     { name = "next", marker = "(platform_machine != 'aarch64' and python_full_version >= '3.13') or (platform_system != 'Linux' and python_full_version >= '3.13') or platform_system == 'Darwin' or (platform_machine == 'aarch64' and platform_system == 'Linux')" },
@@ -30,6 +31,7 @@ dependencies = [
 requires-dist = [
     { name = "flask", specifier = ">=3.1.0" },
     { name = "flask-assets", specifier = ">=2.1.0" },
+    { name = "gunicorn", specifier = ">=23.0.0" },
     { name = "ipython", specifier = ">=8.31.0" },
     { name = "livereload", specifier = ">=2.7.1" },
     { name = "next", specifier = ">=1.0.1" },
@@ -228,6 +230,18 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/ea/e0/46f9600c39c644b54e4420f941f75fa200d9288c9ae171e5d80918b8cbb9/fonttools-4.56.0-cp313-cp313-win32.whl", hash = "sha256:d0cb73ccf7f6d7ca8d0bc7ea8ac0a5b84969a41c56ac3ac3422a24df2680546f", size = 2140927 },
     { url = "https://files.pythonhosted.org/packages/27/6d/3edda54f98a550a0473f032d8050315fbc8f1b76a0d9f3879b72ebb2cdd6/fonttools-4.56.0-cp313-cp313-win_amd64.whl", hash = "sha256:62cc1253827d1e500fde9dbe981219fea4eb000fd63402283472d38e7d8aa1c6", size = 2186709 },
     { url = "https://files.pythonhosted.org/packages/bf/ff/44934a031ce5a39125415eb405b9efb76fe7f9586b75291d66ae5cbfc4e6/fonttools-4.56.0-py3-none-any.whl", hash = "sha256:1088182f68c303b50ca4dc0c82d42083d176cba37af1937e1a976a31149d4d14", size = 1089800 },
+]
+
+[[package]]
+name = "gunicorn"
+version = "23.0.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "packaging", marker = "(platform_machine != 'aarch64' and python_full_version >= '3.13') or (platform_system != 'Linux' and python_full_version >= '3.13') or platform_system == 'Darwin' or (platform_machine == 'aarch64' and platform_system == 'Linux')" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/34/72/9614c465dc206155d93eff0ca20d42e1e35afc533971379482de953521a4/gunicorn-23.0.0.tar.gz", hash = "sha256:f014447a0101dc57e294f6c18ca6b40227a4c90e9bdb586042628030cba004ec", size = 375031 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/cb/7d/6dac2a6e1eba33ee43f318edbed4ff29151a49b5d37f080aad1e6469bca4/gunicorn-23.0.0-py3-none-any.whl", hash = "sha256:ec400d38950de4dfd418cff8328b2c8faed0edb0d517d3394e457c317908ca4d", size = 85029 },
 ]
 
 [[package]]
