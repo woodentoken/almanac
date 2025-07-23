@@ -1,22 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- templates/post.html -->
+{% extends "base.html" %}
 
-<head>
-  <meta charset="UTF-8" />
-  <title>{{ title }}</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
-</head>
+{% block title %}{{ title }} - My Blog{% endblock %}
 
-<body>
-  <article>
-    {{ content | safe }}
-  </article>
-</body>
+{% block content %}
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\(', right: '\\)', display: false},   // inline math
+        {left: '$$', right: '$$', display: true}       // display math
+      ],
+      throwOnError : false
+    });"></script>
 
-</html>
+
+<div class="markdown-container">
+<article class="markdown-content"></article>
+  {{ content|safe }}
 </article>
-</body>
-</title>
-</head>
-
-</html>
+</div>
+{% endblock %}

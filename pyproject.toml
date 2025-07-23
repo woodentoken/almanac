@@ -19,4 +19,6 @@ dependencies = [
     "livereload>=2.7.1",
     "python-dotenv>=1.1.1",
     "gunicorn>=23.0.0",
+    "markdown>=3.8.2",
+    "markdown-extensions>=0.0.1",
 ]

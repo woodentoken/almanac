@@ -1,0 +1,17 @@
+.markdown-container {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding: 20px;
+    font-size: 18px;;
+}
+
+.markdown-content {
+    display: flex;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+}

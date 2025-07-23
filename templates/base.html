@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 </head>
@@ -23,7 +24,8 @@
                     <a href="/" class="brand">home</a>
                     <a href="{{ url_for('series') }}" class="new-post-button">series</a>
                     <a href="{{ url_for('portfolio') }}" class="new-post-button">portfolio</a>
-                    <a href="{{ url_for('about') }}" class="brand">info</a>
+                    <a href="{{ url_for('blog_index') }}">blog</a>
+                    <a href="{{ url_for('about') }}" class="brand">about</a>
                 </div>
             </div>
 
