@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 html,
 body {
   font-family: $font-stack;
@@ -101,10 +103,11 @@ img {
     }
 
     .caption {
+
       text-align: center;
-      font-size: 12px;
+      font-size: 15px;
       margin-bottom: 15px;
-      margin-top: 0px;
+      margin-top: 15px;
     }
   }
 }
@@ -115,4 +118,3 @@ img {
     padding: 0px;
   }
 }
-

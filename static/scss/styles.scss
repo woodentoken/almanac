@@ -1,8 +1,1 @@
-// Import all partial files
-@import 'variables';
-@import 'base';
-@import 'animations';
-@import 'layout';
-@import 'navigation';
-@import 'splash';
-@import 'markdown';
+@use "./index" as *;

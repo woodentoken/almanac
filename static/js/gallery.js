@@ -1,51 +1,72 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('fullImage');
-    const closeBtn = document.getElementsByClassName('close')[0];
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const caption = document.getElementById('caption');
-    const images = document.querySelectorAll('.grid-item');
-    let currentIndex = 0;
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('fullImage');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const caption = document.getElementById('caption');
+  const images = document.querySelectorAll('.grid-item');
+  let currentIndex = 0;
 
-    document.querySelectorAll('.grid-item').forEach((img, index) => {
-        img.onclick = function () {
-            modal.style.display = 'flex';
-            modal.classList.add('show');
-            modalImg.src = this.src;
-            currentIndex = index;
-            caption.textContent = this.alt || 'Image ' + (index + 1);
-        }
-    });
+  function getFullResUrl(url) {
+    return url.replace(/w-\d+,?/g, '');
+  }
 
-    closeBtn.onclick = function () {
-        modal.style.display = 'none';
-        modal.classList.remove('show');
+  function getLowResUrl(url) {
+    return url.replace(/w-\d+,?/g, 'bl-6,');
+  }
+
+  images.forEach((img, index) => {
+    img.onclick = function () {
+      openModal(index);
     }
+  });
 
-    prevBtn.onclick = function () {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        console.log('Current Index:', currentIndex);
-        modalImg.src = images[currentIndex].src;
-        caption.textContent = images[currentIndex].alt || 'Image ' + (currentIndex + 1);
+  function openModal(index) {
+    currentIndex = index;
+    modal.style.display = 'flex';
+    modal.classList.add('show');
 
+    console.log('Opening modal for image index:', currentIndex);
+
+    const lowRes = getLowResUrl(images[currentIndex].src);
+    modalImg.src = lowRes;
+
+    // Get the full image source by removing 'tr' from the src
+    const fullRes = getFullResUrl(images[currentIndex].src);
+    const fullImage = new Image();
+    fullImage.src = fullRes;
+    fullImage.onload = function () {
+      console.log('Full image loaded:', fullRes);
+      modalImg.src = fullRes;
+      modalImg.style.filter = 'none'; // Remove blur after full image loads
+    };
+    caption.textContent = images[currentIndex].alt || 'Image ' + (index + 1);
+  }
+
+  prevBtn.onclick = function () {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    modalImg.src = getFullResUrl(images[currentIndex].src)
+    caption.textContent = images[currentIndex].alt || 'Image ' + (currentIndex + 1);
+
+  }
+
+  nextBtn.onclick = function () {
+    currentIndex = (currentIndex + 1) % images.length;
+    modalImg.src = getFullResUrl(images[currentIndex].src)
+    caption.textContent = images[currentIndex].alt || 'Image ' + (currentIndex + 1);
+
+  }
+
+  // close modal when clicking outside of image
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = 'none';
+      modalImg.src = '';
+      modal.classList.remove('show');
     }
-
-    nextBtn.onclick = function () {
-        currentIndex = (currentIndex + 1) % images.length;
-        modalImg.src = images[currentIndex].src;
-        caption.textContent = images[currentIndex].alt || 'Image ' + (currentIndex + 1);
-
+    if (event.target == modalImg) {
+      modalImg.src = '';
+      modal.style.display = 'none';
     }
-
-    // close modal when clicking outside of image
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = 'none';
-            modal.classList.remove('show');
-        }
-        if (event.target == modalImg) {
-            modal.style.display = 'none';
-        }
-    }
-});
+  }
+  });
