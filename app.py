@@ -1,16 +1,14 @@
 import os
 import sqlite3
 from datetime import datetime
-from paragraph import Paragraph
-from post import Post
 from livereload import Server
 from dotenv import load_dotenv
 
 from flask import Flask, flash, redirect, render_template, request, url_for, abort
 import markdown
 from werkzeug.utils import secure_filename
-
 BLOG_DIR = 'posts'
+
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "your-secret-key-here"
