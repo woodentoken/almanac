@@ -1,22 +1,25 @@
 //Initializing
-var i = 0;
-var images = []; //array
-var time = 7777; // time in millie seconds
+var images = []; //rray
+var i = 0; // Index for the current image
+var time = 10000;
 
-images[0] = "url(/static/images/crane.jpg)";
-images[1] = "url(/static/images/palm.jpg)";
-images[2] = "url(/static/images/heron.jpg)";
-images[3] = "url(/static/images/fog.jpg)";
-images[4] = "url(/static/images/water.jpg)";
+images[0] = "https://ik.imagekit.io/ry1ze0vkn/splash/crane.jpg?tr=lqip";
+images[1] = "https://ik.imagekit.io/ry1ze0vkn/splash/heron.jpg?tr=lqip";
+images[2] = "https://ik.imagekit.io/ry1ze0vkn/splash/fog.jpg?tr=lqip";
+images[3] = "https://ik.imagekit.io/ry1ze0vkn/splash/palm.jpg?tr=lqip";
+images[4] = "https://ik.imagekit.io/ry1ze0vkn/splash/water.jpg?tr=lqip";
+
+document.addEventListener('DOMContentLoaded', function() {
+  const el = document.getElementById('splash');
+  randomIndex = Math.floor(Math.random() * images.length);
+  el.style.backgroundImage = images[randomIndex]; // Initial image
+ });
+
 
 // Preload images
 function preloadImages() {
     var imageUrls = [
-        "/static/images/crane.jpg",
-        "/static/images/palm.jpg",
-        "/static/images/heron.jpg",
-        "/static/images/fog.jpg",
-        "/static/images/water.jpg"
+        "https://ik.imagekit.io/ry1ze0vkn/splash/crane.jpg?tr=lqip",
     ];
     
     var loadedCount = 0;
@@ -24,9 +27,12 @@ function preloadImages() {
     
     imageUrls.forEach(function(url) {
         var img = new Image();
+        img.src = url;
+    console.log('Preloading image:', url);
         img.onload = function() {
             loadedCount++;
             if (loadedCount === totalImages) {
+        console.log('All images preloaded successfully.');
                 changeImage(); // Start slideshow after all images are loaded
             }
         };
@@ -43,6 +49,7 @@ function preloadImages() {
 
 function changeImage() {
     var el = document.getElementById('splash');
+  console.log('Changing image to:', images[i]);
     el.style.backgroundImage = images[i];
     if (i < images.length - 1) {
         i++;

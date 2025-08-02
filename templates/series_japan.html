@@ -39,10 +39,13 @@
 </div>
 
 <div id="imageModal" class="modal" style="display: none;">
-    <span class="close">&times;</span>
+  <div class="caption_top"></div>
+  <div class="modal-wrapper">
     <button id="prevBtn" class="nav-btn">previous</button>
     <img class="modal-content" id="fullImage">
     <button id="nextBtn" class="nav-btn">next</button>
+  </div>
+  <div id="caption" class="caption_bottom"></div>
 </div>
 
 <script src="{{ url_for('static', filename='js/masonry.pkgd.min.js') }}"></script>
