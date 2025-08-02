@@ -12,7 +12,7 @@ images[4] = "https://ik.imagekit.io/ry1ze0vkn/splash/water.jpg?tr=lqip";
 document.addEventListener('DOMContentLoaded', function() {
   const el = document.getElementById('splash');
   randomIndex = Math.floor(Math.random() * images.length);
-  el.style.backgroundImage = images[randomIndex]; // Initial image
+  el.style.backgroundImage = images[randomIndex]; /            <a href="{{ url_for('series') }}">series</a>            <a href="{{ url_for('series') }}">series</a>/ Initial image
  });
 
 
