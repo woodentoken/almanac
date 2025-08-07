@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   const modal = document.getElementById('imageModal');
+  const modalFrame = document.getElementById('modalFrame');
   const modalImg = document.getElementById('fullImage');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
@@ -40,20 +41,20 @@ document.addEventListener('DOMContentLoaded', function () {
       modalImg.src = fullRes;
       modalImg.style.filter = 'none'; // Remove blur after full image loads
     };
-    caption.textContent = images[currentIndex].alt || 'Image ' + (index + 1);
+    caption.textContent = images[currentIndex].alt;
   }
 
   prevBtn.onclick = function () {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
     modalImg.src = getFullResUrl(images[currentIndex].src)
-    caption.textContent = images[currentIndex].alt || 'Image ' + (currentIndex + 1);
+    caption.textContent = images[currentIndex].alt;
 
   }
 
   nextBtn.onclick = function () {
     currentIndex = (currentIndex + 1) % images.length;
     modalImg.src = getFullResUrl(images[currentIndex].src)
-    caption.textContent = images[currentIndex].alt || 'Image ' + (currentIndex + 1);
+    caption.textContent = images[currentIndex].alt;
 
   }
 
@@ -68,5 +69,9 @@ document.addEventListener('DOMContentLoaded', function () {
       modalImg.src = '';
       modal.style.display = 'none';
     }
+    if (event.target == modalFrame) {
+      modalImg.src = '';
+      modal.style.display = 'none';
+    }
   }
-  });
+});

@@ -202,25 +202,38 @@ img {
 .modal .modal-wrapper {
   display: flex;
   flex-direction: row;
+  min-width: 150px;
+  justify-content: space-between;
+  width: 500px;
   margin: auto;
 }
 .modal #caption {
   display: flex;
-  padding: 0 0 25px 0;
   text-align: center;
   color: #000;
   font-size: 20px;
 }
 
+@media (max-width: 750px) {
+  .modal .modal-wrapper {
+    width: 350px;
+  }
+}
 .modal.show {
   opacity: 1;
 }
 
+.modal-shell {
+  display: flex;
+  width: 90vw;
+  height: 95vh;
+}
+
 .modal-content {
+  display: flex;
   margin: auto;
-  display: block;
-  max-width: 85vw;
-  max-height: 90vh;
+  max-width: 90%;
+  max-height: 90%;
 }
 
 .close {
@@ -242,15 +255,11 @@ img {
 }
 
 .nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 100%;
-  width: 120px;
+  display: flex;
   background: none;
   border: none;
   color: black;
-  font-size: 24px;
+  font-size: 20px;
   cursor: pointer;
   outline: none;
   opacity: 0.4;
@@ -260,16 +269,6 @@ img {
 
 .nav-btn:hover {
   opacity: 0.9;
-}
-
-#prevBtn {
-  left: 0;
-  color: black;
-}
-
-#nextBtn {
-  right: 0;
-  color: black;
 }
 
 .masonry {
