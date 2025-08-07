@@ -7,13 +7,16 @@ from dotenv import load_dotenv
 from flask import Flask, flash, redirect, render_template, request, url_for, abort
 import markdown
 from werkzeug.utils import secure_filename
-BLOG_DIR = 'posts'
+
+BLOG_DIR = "posts"
 
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "your-secret-key-here"
+
+load_dotenv()  # This loads variables from .env in dev only
+
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "fallback-dev-secret")
 app.config["UPLOAD_FOLDER"] = "static/uploads"
-load_dotenv()
 
 # Always enable Jinja auto-reload in development
 if os.environ.get("FLASK_ENV") == "development":
@@ -23,6 +26,7 @@ if os.environ.get("FLASK_ENV") == "development":
     USE_LIVERELOAD = True
 else:
     USE_LIVERELOAD = False
+
 
 @app.route("/")
 def splash():
@@ -58,29 +62,33 @@ def contact():
 def about():
     return render_template("about.html")
 
-@app.route('/blog')
+
+@app.route("/blog")
 def blog_index():
     # List all .md files and extract slugs
     posts = []
     for filename in os.listdir(BLOG_DIR):
-        if filename.endswith('.md'):
+        if filename.endswith(".md"):
             slug = filename[:-3]  # Remove ".md"
-            title = slug.replace('-', ' ').title()
-            posts.append({'slug': slug, 'title': title})
-    
-    return render_template('blog_index.html', posts=posts)
+            title = slug.replace("-", " ").title()
+            posts.append({"slug": slug, "title": title})
 
-@app.route('/blog/<slug>')
+    return render_template("blog_index.html", posts=posts)
+
+
+@app.route("/blog/<slug>")
 def blog_post(slug):
-    md_path = os.path.join(BLOG_DIR, f'{slug}.md')
+    md_path = os.path.join(BLOG_DIR, f"{slug}.md")
     if not os.path.exists(md_path):
         abort(404)
 
-    with open(md_path, 'r', encoding='utf-8') as f:
+    with open(md_path, "r", encoding="utf-8") as f:
         md_content = f.read()
-        html = markdown.markdown(md_content, extensions=['fenced_code', 'codehilite'])
+        html = markdown.markdown(md_content, extensions=["fenced_code", "codehilite"])
 
-    return render_template('post.html', content=html, title=slug.replace("-", " ").title())
+    return render_template(
+        "post.html", content=html, title=slug.replace("-", " ").title()
+    )
 
 
 if __name__ == "__main__":
