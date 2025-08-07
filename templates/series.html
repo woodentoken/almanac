@@ -1,22 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="masonry-bigger">
+<div class="masonry">
+  <div class="grid-sizer"></div>
 
+  <div class="grid-item--series">
     <div class="image-container">
-        <a href="{{ url_for('series_japan')}}">
-            <img src="{{ url_for('static', filename='images/20250115_214906_KKB00768.jpg') }}" alt="Photo of Mt. Fuji from the train.">
-            <div class="hover-text">Japan</div>
-        </a>
+      <a href="{{ url_for('series_japan')}}">
+        <img src="https://ik.imagekit.io/ry1ze0vkn/japan/japan_3.jpg?tr=w-400,h-400,lqip" alt="Photo 1">
+        <div class="hover-text">Japan</div>
+      </a>
     </div>
+  </div>
 
+  <div class="grid-item--series">
     <div class="image-container">
-    <a href="{{ url_for('series_westing')}}">
-        <img src="{{ url_for('static', filename='images/westing/westing_1.jpg') }}" alt="Photo 2">
+      <a href="{{ url_for('series_westing')}}">
+        <img src="https://ik.imagekit.io/ry1ze0vkn/westing/westing_1.jpg?tr=w-400,h-400,lqip" alt="Davis, California">
         <div class="hover-text">Westing</div>
-    </a>
+      </a>
     </div>
-
+  </div>
 </div>
 
 {% endblock %}
