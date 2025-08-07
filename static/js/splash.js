@@ -1,55 +1,50 @@
-//Initializing
+var images = [];
 var i = 0;
-var images = []; //array
-var time = 7777; // time in millie seconds
+var time = 10000;
 
-images[0] = "url(/static/images/crane.jpg)";
-images[1] = "url(/static/images/palm.jpg)";
-images[2] = "url(/static/images/heron.jpg)";
-images[3] = "url(/static/images/fog.jpg)";
-images[4] = "url(/static/images/water.jpg)";
+images[0] = "https://ik.imagekit.io/ry1ze0vkn/splash/crane.jpg?tr=lqip";
+images[1] = "https://ik.imagekit.io/ry1ze0vkn/splash/heron.jpg?tr=lqip";
+images[2] = "https://ik.imagekit.io/ry1ze0vkn/splash/palm.jpg?tr=lqip";
+images[3] = "https://ik.imagekit.io/ry1ze0vkn/splash/water.jpg?tr=rt-180,lqip";
+
+document.addEventListener('DOMContentLoaded', function() {
+  const el = document.getElementById('splash');
+  const randomIndex = Math.floor(Math.random() * images.length);
+  el.style.backgroundImage = `url("${images[randomIndex]}")`;
+});
 
 // Preload images
 function preloadImages() {
-    var imageUrls = [
-        "/static/images/crane.jpg",
-        "/static/images/palm.jpg",
-        "/static/images/heron.jpg",
-        "/static/images/fog.jpg",
-        "/static/images/water.jpg"
-    ];
-    
-    var loadedCount = 0;
-    var totalImages = imageUrls.length;
-    
-    imageUrls.forEach(function(url) {
-        var img = new Image();
-        img.onload = function() {
-            loadedCount++;
-            if (loadedCount === totalImages) {
-                changeImage(); // Start slideshow after all images are loaded
-            }
-        };
-        img.onerror = function() {
-            console.warn('Failed to load image:', url);
-            loadedCount++;
-            if (loadedCount === totalImages) {
-                changeImage(); // Start slideshow even if some images failed
-            }
-        };
-        img.src = url;
-    });
+  var loadedCount = 0;
+  var totalImages = images.length;
+
+  images.forEach(function(url) {
+    var img = new Image();
+    img.onload = function() {
+      loadedCount++;
+      if (loadedCount === totalImages) {
+        console.log('All images preloaded successfully.');
+        changeImage();
+      }
+    };
+    img.onerror = function() {
+      console.warn('Failed to load image:', url);
+      loadedCount++;
+      if (loadedCount === totalImages) {
+        changeImage();
+      }
+    };
+    img.src = url;
+  });
 }
 
 function changeImage() {
-    var el = document.getElementById('splash');
-    el.style.backgroundImage = images[i];
-    if (i < images.length - 1) {
-        i++;
-    } else {
-        i = 0;
-    }
-    setTimeout(changeImage, time); // Also fixed the setTimeout syntax
+  var el = document.getElementById('splash');
+  el.style.backgroundImage = `url("${images[i]}")`;
+  console.log('Changing image to:', images[i]);
+  i = (i + 1) % images.length;
+  setTimeout(changeImage, time);
 }
 
 window.onload = preloadImages;
+

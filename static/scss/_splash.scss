@@ -2,7 +2,7 @@
 
 .splash {
   background-color: $secondary-color;
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
@@ -12,12 +12,15 @@
   .menu-container {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    margin: 28px 72px;
+    margin: 32px 72px;
     font-size: 48px;
 
     .title {
       color: #fff;
+      text-align: center;
+      margin: 10px;
     }
 
     .space styles {
@@ -27,16 +30,28 @@
     .nav-links {
       display: flex;
       align-items: center;
+      flex-direction: row;
     }
 
     a {
-      font-size: 28px;
+      font-size: 32px;
       color: #fff;
-      margin: 0px 20px;
+      margin: 20px;
     }
 
     h3 {
       margin: 0px;
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .splash {
+    .menu-container {
+      .nav-links {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   }
 }
