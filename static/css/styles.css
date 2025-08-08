@@ -1,6 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@500;700&display=swap");
 html,
 body {
-  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-family: "Lexend", "Atkinson Hyperlegible", "Times New Roman";
   font-size: 20px;
   font-weight: 400;
   color: #000;
@@ -62,6 +64,7 @@ img {
   display: flex;
   justify-content: left;
   max-width: 400px;
+  min-width: 5px;
   font-size: 18px;
   margin: 0px 0px 15px 0px;
 }
@@ -84,7 +87,7 @@ img {
   font-size: 16px;
 }
 .text-content .information-container {
-  min-width: 200px;
+  min-width: 50px;
   max-width: 400px;
   display: flex;
   padding: 0px 20px 0px 0px;
@@ -140,17 +143,17 @@ img {
   position: sticky;
   top: 0px;
   left: 0px;
-  padding: 50px;
+  padding: 60px;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  max-width: 250px;
-  min-width: 150px;
+  width: 250px;
+  min-width: 100px;
 }
 .container .blade .title {
   position: fixed;
-  top: 42px;
+  top: 32px;
   left: 28px;
   font-weight: 700;
   font-size: 32px;
@@ -159,7 +162,7 @@ img {
 .container .blade .main-menu {
   position: fixed;
   left: 20px;
-  top: 150px;
+  top: 132px;
   font-size: 24px;
 }
 .container .blade div {
@@ -178,6 +181,39 @@ img {
   width: 100%;
 }
 
+@media (max-width: 750px) {
+  .container {
+    flex-direction: column;
+  }
+  .container .blade {
+    position: relative;
+    align-items: center;
+    padding: 0px;
+    top: 0px;
+    min-height: 300px;
+    left: 0px;
+    width: 100%;
+    min-width: 0px;
+  }
+  .container .blade .title {
+    position: relative;
+    text-align: center;
+    left: 0px;
+    max-width: 100%;
+  }
+  .container .blade .main-menu {
+    position: relative;
+    text-align: center;
+    left: 0px;
+    top: 40px;
+  }
+  .main-menu {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    font-size: 20px;
+  }
+}
 .wrapper {
   display: flex;
   margin: auto;
@@ -204,7 +240,7 @@ img {
   flex-direction: row;
   min-width: 150px;
   justify-content: space-between;
-  width: 500px;
+  width: 600px;
   margin: auto;
 }
 .modal #caption {
@@ -260,6 +296,7 @@ img {
   border: none;
   color: black;
   font-size: 20px;
+  font-family: "Lexend", "Atkinson Hyperlegible", "Times New Roman";
   cursor: pointer;
   outline: none;
   opacity: 0.4;
@@ -307,22 +344,34 @@ img {
     width: calc((100% - 6 * 16px) / 3);
     margin-top: 16px;
     margin-right: 16px;
+    margin-left: 16px;
   }
   .grid-item--bigger {
     width: calc((100% - 6 * 16px) * 2 / 3 + 2 * 16px);
   }
 }
 @media (max-width: 750px) {
+  .masonry {
+    display: flex;
+    flex-direction: column;
+  }
+  .grid-item--series {
+    margin: auto;
+    margin-top: 32px;
+  }
   .grid-sizer {
-    width: calc((100% - 2 * 16px) / 1);
+    width: calc((100% - 1 * 16px) / 2);
   }
   .grid-item {
-    width: calc((100% - 2 * 16px) / 1);
+    width: calc((100% - 1 * 16px) / 2);
     margin-top: 16px;
     margin-right: 16px;
+    margin-left: 0px;
   }
   .grid-item--bigger {
-    width: calc((100% - 2 * 16px) / 1);
+    width: 100%;
+    margin-right: 0px;
+    margin-left: 0px;
   }
 }
 .masonry-bigger {
@@ -350,7 +399,7 @@ img {
   opacity: 0;
   z-index: 1;
   color: white;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 32px;
   animation: fadeout 1.5s;
 }
@@ -360,6 +409,25 @@ img {
   animation: fadein 0.5s;
 }
 
+@media (max-width: 500px) {
+  .grid-sizer {
+    width: 100%;
+  }
+  .grid-item {
+    width: 100%;
+    margin: 0px;
+    margin-top: 16px;
+  }
+  .grid-item--bigger {
+    width: 100%;
+    margin: 0px;
+    margin-top: 16px;
+  }
+  .image-container .hover-text {
+    opacity: 1;
+    animation: fadein 1.5s;
+  }
+}
 .nav {
   background-color: #000;
 }

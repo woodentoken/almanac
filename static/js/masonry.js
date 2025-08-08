@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
         columnWidth: '.grid-sizer',
         gutter: gutterSize,
         percentPosition: true,
-        transitionDuration: '0s',
+        transitionDuration: '0.1s',
     });
 
     imagesLoaded(grid, () => {
