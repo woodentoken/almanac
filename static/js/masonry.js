@@ -2,7 +2,7 @@ let msnry; // Declare in outer scope
 
 document.addEventListener('DOMContentLoaded', function () {
     const grid = document.querySelector('.masonry');
-    const gutterSize = window.innerWidth < 700 ? 16 : 32;
+    const gutterSize = window.innerWidth < 700 ? 32 : 32;
 
     msnry = new Masonry(grid, {
         itemSelector: '.grid-item',
