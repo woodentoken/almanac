@@ -95,7 +95,7 @@
   }
 
   .content {
-    padding-bottom: 50px;
+    padding-bottom: 30px;
   }
 
   .sticky-footer {
@@ -178,13 +178,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: c;
   position: fixed;
-  z-index: 1;
+  z-index: 10000;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(255, 255, 255, 0.95);
   opacity: 0;
   transition: opacity 0.5s ease;
