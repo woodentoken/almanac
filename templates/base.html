@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}almanac{% endblock %}</title>
@@ -10,60 +10,79 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class = "container">
-        <div class="blade">
-            <div class = "title">
-                almanac photography
-            </div>
-
-            <div class = "main-menu">
-                  <div>
-                    <a href="/" class="brand">home</a>
-                    <a href="{{ url_for('portfolio') }}" class="new-post-button">portfolio</a>
-                    <a href="{{ url_for('series') }}" class="new-post-button">series</a>
-                    <a href="{{ url_for('about') }}" class="brand">about</a>
-                </div>
-            </div>
-
-            <div class = "end-menu">
-            </div>
+      <div class="blade">
+        <div class = "title">
+          almanac photography
         </div>
 
-        <div class="content">
-            {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    {% for message in messages %}
-                        <div class="flash-message">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-
-            {% block content %}{% endblock %}
+        <div class = "main-menu">
+          <div>
+            <a href="/" class="brand">home</a>
+            <a href="{{ url_for('portfolio') }}" class="new-post-button">portfolio</a>
+            <a href="{{ url_for('series') }}" class="new-post-button">series</a>
+            <a href="{{ url_for('about') }}" class="brand">about</a>
+            <a href="{{ url_for('about') }}" class="brand">contact</a>
+          </div>
         </div>
+
+        <div class="fill"></div>
+
+        <div class = "end-menu">
+          <a href="mailto:kaleb.bordner@gmail.com" target="_blank">
+            <img class="icon" src="/static/icons/email-svgrepo-com.svg"  alt="email">
+          </a>
+          <a href="https://www.instagram.com/vessel_in_vain/" target="_blank">
+            <img class="icon" src="/static/icons/instagram-svgrepo-com.svg" alt="insta">
+          </a>
+
+        </div>
+      </div>
+
+      <div class="content">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="flash-message">
+          {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+      </div>
     </div>
 
     <script>
-        var coll = document.getElementsByClassName("collapse");
-        var i;
-        
-        for (i = 0; i < coll.length; i++) {
-          coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.maxHeight){
-              content.style.maxHeight = null;
-            } else {
-              content.style.maxHeight = content.scrollHeight + "px";
-            } 
-          });
-        }
-        </script>
-</body>
+      var coll = document.getElementsByClassName("collapse");
+      var i;
+
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.maxHeight){
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+          } 
+        });
+      }
+    </script>
+  </body>
+
+  <footer class="sticky-footer">
+    <a href="mailto:kaleb.bordner@gmail.com" target="_blank">
+      <img class="icon" src="/static/icons/email-svgrepo-com.svg" alt="email">
+    </a>
+    <a href="https://www.instagram.com/vessel_in_vain/" target="_blank">
+      <img class="icon" src="/static/icons/instagram-svgrepo-com.svg" alt="insta">
+    </a>
+  </footer>
 
 
 </html>

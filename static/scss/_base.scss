@@ -62,6 +62,16 @@ img {
   }
 }
 
+@media (max-width: 700px) {
+  .series .series-blurb {
+    margin: 20px;
+  }
+
+  .series .series-title {
+    margin: 0px;
+  }
+}
+
 .info {
   display: flex;
   justify-content: left;
