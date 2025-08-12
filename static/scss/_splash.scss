@@ -45,12 +45,44 @@
   }
 }
 
+.splash-end-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: auto;
+
+  a {
+    font-size: 24px;
+    color: #fff;
+    margin: 10px;
+    text-decoration: none;
+    filter: invert(100%);
+  }
+}
+
 @media only screen and (max-width: 800px) {
   .splash {
     .menu-container {
       .nav-links {
         flex-direction: column;
         align-items: center;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  .splash {
+    .menu-container {
+      .title {
+        font-size: 32px;
+      }
+
+      a {
+        font-size: 24px;
+        margin: 6px;
       }
     }
   }

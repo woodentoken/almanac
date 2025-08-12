@@ -1,5 +1,9 @@
 @use "variables" as *;
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   font-family: $font-stack;
@@ -81,6 +85,11 @@ img {
   margin: 0px 0px 15px 0px;
 }
 
+.info_end {
+  font-size: 18px;
+  margin-top: auto;
+}
+
 .text-content {
   display: flex;
   flex-direction: row;
@@ -105,13 +114,9 @@ img {
     min-width: 50px;
     max-width: 400px;
     display: flex;
-    padding: 0px 20px 0px 0px;
+    padding: 0px 32px 0px 0px;
     flex-direction: column;
 
-    .info_end {
-      font-size: 18px;
-      margin-top: auto;
-    }
 
     .caption {
 
@@ -126,6 +131,18 @@ img {
 @media (max-width: 1200px) {
   .text-content {
     flex-direction: column;
+    padding: 0px;
+  }
+}
+
+@media (max-width: 600px) {
+  .text-content {
+    flex-direction: column;
+    padding: 0px 0px 40px 0px;
+  }
+
+  .information-container {
+    min-width: 50px;
     padding: 0px;
   }
 }
