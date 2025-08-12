@@ -35,7 +35,7 @@ img {
 }
 
 .emphasis {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .text {
@@ -58,7 +58,8 @@ img {
   padding: 20px 40px 0px 40px;
 }
 .series .series-title {
-  margin: 20px;
+  margin-top: 20px;
+  font-size: 24px;
   font-weight: 700;
 }
 .series .series-blurb {
@@ -66,12 +67,13 @@ img {
   font-size: 16px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   .series .series-blurb {
     margin: 20px;
   }
   .series .series-title {
     margin: 0px;
+    margin-bottom: 20px;
   }
 }
 .info {
@@ -431,6 +433,17 @@ img {
   }
   .modal .modal-wrapper {
     width: 350px;
+  }
+  .modal-shell {
+    display: flex;
+    width: 100vw;
+    height: 95vh;
+  }
+  .modal-content {
+    display: flex;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
   }
   .end-menu {
     visibility: hidden;

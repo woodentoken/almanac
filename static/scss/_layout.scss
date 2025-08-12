@@ -319,15 +319,21 @@
     }
   }
 
-  // .main-menu {
-  //   position: relative;
-  //   left: 0px;
-  //   top: 0px;
-  //   font-size: 20px;
-  // }
-
   .modal .modal-wrapper {
     width: 350px;
+  }
+
+  .modal-shell {
+    display: flex;
+    width: 100vw;
+    height: 95vh;
+  }
+
+  .modal-content {
+    display: flex;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
   }
 
   .end-menu {
