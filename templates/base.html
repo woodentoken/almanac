@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="{{ url_for('static', filename='js/scrolltop.js') }}"></script>
   </head>
 
   <body>
@@ -25,7 +26,7 @@
             <a href="{{ url_for('portfolio') }}" class="new-post-button">portfolio</a>
             <a href="{{ url_for('series') }}" class="new-post-button">series</a>
             <a href="{{ url_for('about') }}" class="brand">about</a>
-            <a href="{{ url_for('about') }}" class="brand">contact</a>
+            <a href="{{ url_for('contact') }}" class="brand">contact</a>
           </div>
         </div>
 
@@ -33,10 +34,10 @@
 
         <div class = "end-menu">
           <a href="mailto:kaleb.bordner@gmail.com" target="_blank">
-            <img class="icon" src="/static/icons/email-svgrepo-com.svg"  alt="email">
+            <img class="icon" src="/static/icons/email.svg"  alt="email">
           </a>
           <a href="https://www.instagram.com/vessel_in_vain/" target="_blank">
-            <img class="icon" src="/static/icons/instagram-svgrepo-com.svg" alt="insta">
+            <img class="icon" src="/static/icons/instagram.svg" alt="insta">
           </a>
 
         </div>
@@ -77,10 +78,13 @@
 
   <footer id="small-footer" class="sticky-footer">
     <a href="mailto:kaleb.bordner@gmail.com" target="_blank">
-      <img class="icon" src="/static/icons/email-svgrepo-com.svg" alt="email">
+      <img class="icon" src="/static/icons/email.svg" alt="email">
     </a>
     <a href="https://www.instagram.com/vessel_in_vain/" target="_blank">
-      <img class="icon" src="/static/icons/instagram-svgrepo-com.svg" alt="insta">
+      <img class="icon" src="/static/icons/instagram.svg" alt="insta">
+    </a>
+    <button id="scrollToTop" onclick="topFunction()">
+      <img class="icon" src="/static/icons/up.svg" alt="up">
     </a>
   </footer>
 
