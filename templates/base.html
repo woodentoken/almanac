@@ -11,23 +11,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <script src="{{ url_for('static', filename='js/scrolltop.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/collapsible.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/light_dark.js') }}"></script>
   </head>
 
   <body>
     <div class = "container">
       <div class="blade">
         <div class = "title">
+          <img src="/static/icons/almanac_logo.svg" alt="almanac logo" id="toggle" class="icon icon-big">
           almanac photography
         </div>
 
         <div class = "main-menu">
-          <div>
-            <a href="/" class="brand">home</a>
-            <a href="{{ url_for('portfolio') }}" class="new-post-button">portfolio</a>
-            <a href="{{ url_for('series') }}" class="new-post-button">series</a>
-            <a href="{{ url_for('about') }}" class="brand">about</a>
-            <a href="{{ url_for('contact') }}" class="brand">contact</a>
+          <a href="/" class="brand">home</a>
+          <a href="{{ url_for('portfolio') }}" class="brand">portfolio</a>
+          <div class="menu-container brand">
+            <a href="{{ url_for('series') }}" class="brand2">series</a>
+            <!-- <div class="spacer"></div> -->
+            <span class="menu-button"></span>
           </div>
+          <div class="collapsible">
+            <ul>
+              <li><a href="{{ url_for('series_japan', series_name='japan') }}">japan</a></li>
+              <li><a href="{{ url_for('series_westing', series_name='westing') }}">westing</a></li>
+            </ul>
+          </div>
+          <a href="{{ url_for('about') }}" class="brand">about</a>
+          <a href="{{ url_for('contact') }}" class="brand">contact</a>
         </div>
 
         <div class="fill"></div>
@@ -56,6 +67,7 @@
 
         {% block content %}{% endblock %}
       </div>
+
     </div>
 
     <script>
@@ -85,7 +97,7 @@
     </a>
     <button id="scrollToTop" onclick="topFunction()">
       <img class="icon" src="/static/icons/up.svg" alt="up">
-    </a>
+      </a>
   </footer>
 
 

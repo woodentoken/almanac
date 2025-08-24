@@ -39,23 +39,41 @@ document.addEventListener('DOMContentLoaded', function () {
     fullImage.onload = function () {
       console.log('Full image loaded:', fullRes);
       modalImg.src = fullRes;
+      modalImg.contextmenu = false;
+      modalImg.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+        return false;
+      });
       modalImg.style.filter = 'none'; // Remove blur after full image loads
     };
     caption.textContent = images[currentIndex].alt;
   }
 
+  // allow the keyboard arrows to navigate
+  document.addEventListener('keydown', function (event) {
+    if (modal.style.display === 'flex') {
+      if (event.key === 'ArrowLeft') {
+        prevBtn.click();
+      } else if (event.key === 'ArrowRight') {
+        nextBtn.click();
+      } else if (event.key === 'Escape') {
+        modal.style.display = 'none';
+        modalImg.src = '';
+        modal.classList.remove('show');
+      }
+    }
+  });
+
   prevBtn.onclick = function () {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
     modalImg.src = getFullResUrl(images[currentIndex].src)
     caption.textContent = images[currentIndex].alt;
-
   }
 
   nextBtn.onclick = function () {
     currentIndex = (currentIndex + 1) % images.length;
     modalImg.src = getFullResUrl(images[currentIndex].src)
     caption.textContent = images[currentIndex].alt;
-
   }
 
   // close modal when clicking outside of image

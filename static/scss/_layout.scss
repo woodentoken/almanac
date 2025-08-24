@@ -57,19 +57,10 @@
       margin-bottom: 20px;
       z-index: 0;
 
-      a {
+      a,
+      div {
         margin: 0px;
         margin-right: 10px;
-      }
-    }
-
-    div {
-      display: flex;
-      top: 0;
-      flex-direction: column;
-
-      a {
-        margin: 10px;
       }
     }
   }
@@ -309,7 +300,7 @@ body.dark-mode .modal {
       align-items: center;
       padding: 0px;
       top: 0px;
-      min-height: 350px;
+      min-height: 390px;
       left: 0px;
       width: 100%;
       min-width: 0px;
@@ -327,6 +318,21 @@ body.dark-mode .modal {
         text-align: center;
         left: 0px;
         top: 40px;
+
+
+        .menu-container {
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+        }
+
+        .menu-button {
+          display: none;
+        }
+
+        .spacer {
+          display: none;
+        }
 
         a {
           margin: 6px;

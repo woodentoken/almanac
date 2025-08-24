@@ -66,6 +66,22 @@ img {
   font-size: 20px;
 }
 
+.collapsible {
+  overflow: hidden;
+  cursor: pointer;
+  max-height: 0px;
+
+  ul {
+    list-style-type: none;
+    margin: 0px;
+
+    li {
+      margin: 7px;
+    }
+  }
+}
+
+
 .text-heading {
   display: flex;
   flex-direction: column;
