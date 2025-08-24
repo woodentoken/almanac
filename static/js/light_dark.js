@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (localStorage.getItem("theme") === "dark-mode") {
     body.classList.add("dark-mode");
   }
-   else {
+  else {
     body.classList.add("light-mode");
   }
 

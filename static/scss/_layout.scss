@@ -142,6 +142,37 @@
   width: 35px;
 }
 
+.icon-splash {
+  width: 35px;
+}
+
+body.dark-mode {
+  .icon {
+    filter: invert(100%);
+  }
+
+  .icon-splash {
+    filter: none;
+  }
+
+  .icon-big {
+    transform: scaleX(-1);
+  }
+
+  .icon-bigger {
+    transform: scaleX(-1);
+    filter: none;
+  }
+}
+
+.icon-big {
+  width: 52px;
+}
+
+.icon-bigger {
+  width: 77px;
+}
+
 /* Grid & Masonry */
 .masonry {
   width: 100%;
@@ -425,7 +456,6 @@ body.dark-mode .modal {
 
     button {
       margin: 12px;
-      border: none;
       background: none;
       color: inherit;
       border: none;
