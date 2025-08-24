@@ -36,13 +36,52 @@
     .main-menu {
       position: fixed;
       left: 20px;
-      top: 132px;
+      top: 140px;
       font-size: 24px;
       z-index: 1000;
+      display: flex;
+      flex-direction: column;
+
+      .brand {
+        margin: 7px;
+      }
     }
 
     .fill {
       margin: auto;
+    }
+
+    .menu-container {
+      display: flex;
+      flex-direction: row;
+
+      a {}
+
+      .spacer {
+        margin: auto;
+      }
+
+      .menu-button {
+        z-index: 1000;
+      }
+
+      .collapsible {
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+      }
+
+      .menu-button {
+        float: right;
+        margin-left: 5px;
+      }
+
+      .menu-button:after {
+        content: "\002B";
+      }
+
+      .open:after {
+        content: "\2212";
+      }
     }
 
     .end-menu {
