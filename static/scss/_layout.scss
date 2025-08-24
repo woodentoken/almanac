@@ -15,7 +15,14 @@
     flex-direction: column;
     justify-content: flex-end;
     width: 250px;
+    color: var(--text-color);
+    background-color: var(--bg-color);
     min-width: 100px;
+
+    &.dark-mode {
+      --bg-color: #{$dark-bg};
+      --text-color: #{$dark-text};
+    }
 
     .title {
       position: fixed;
@@ -73,12 +80,13 @@
     justify-content: start;
     align-items: start;
     width: 100%;
+    height: 100vh;
   }
 }
 
 /* Navigation */
 .nav {
-  background-color: $secondary-color;
+  background-color: $light-bg;
 }
 
 .collapse {
@@ -142,6 +150,15 @@
 }
 
 /* Modal */
+
+body.light-mode .modal {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+body.dark-mode .modal {
+  background-color: rgba(10, 10, 10, 0.9);
+}
+
 .modal {
   display: flex;
   flex-direction: column;
@@ -153,8 +170,7 @@
   top: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(255, 255, 255, 0.95);
-  opacity: 0;
+  background-color: rgba(5, 5, 5, 0.5);
   transition: opacity 0.5s ease;
   animation: fadein 0.25s;
 
@@ -163,13 +179,13 @@
     flex-direction: row;
     min-width: 100px;
     justify-content: space-between;
-    width: 450px;
+    width: 500px;
   }
 
   #caption {
     display: flex;
     text-align: center;
-    color: #000;
+    color: var(--text-color);
     font-size: 20px;
   }
 }
@@ -214,8 +230,8 @@
   display: flex;
   background: none;
   border: none;
-  color: black;
   font-size: 20px;
+  color: var(--text-color);
   font-family: $font-stack;
   cursor: pointer;
   outline: none;

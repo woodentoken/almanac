@@ -3,11 +3,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@500;700&display=swap');
 
-$primary-color: #000;
-$secondary-color: #000;
 $font-stack: "Atkinson Hyperlegible Next", sans-serif;
 
 // Grid variables
 $grid-pad: 32px;
 $grid-pad-sm: 16px;
 $grid-num: 5;
+
+$dark-bg: #000000;
+$dark-text: #ffffff;
+
+$light-bg: #ffffff;
+$light-text: #000000;
+
+:root {
+  --bg-color: #{$light-bg};
+  --text-color: #{$light-text};
+}

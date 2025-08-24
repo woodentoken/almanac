@@ -9,10 +9,34 @@ body {
   font-family: $font-stack;
   font-size: 20px;
   font-weight: 400;
-  color: $primary-color;
-  height: 100vh;
-  margin: 0px;
+  color: var(--text-color);
+  background: var(--bg-color);
+  min-height: 100%;
+  height: 100%;
+  margin: 0;
   padding: 0;
+
+  &.dark-mode {
+    --bg-color: #{$dark-bg};
+    --text-color: #{$dark-text};
+  }
+}
+
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-color);
+  z-index: -1;
+  /* behind all content */
+}
+
+.content {
+  height: 100vh;
 }
 
 h1,
@@ -22,7 +46,7 @@ h3 {
 }
 
 a {
-  color: $secondary-color;
+  color: var(--text-color);
   text-decoration: none;
   margin: 0px;
 }

@@ -1,7 +1,13 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@500;700&display=swap");
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -11,10 +17,33 @@ body {
   font-family: "Atkinson Hyperlegible Next", sans-serif;
   font-size: 20px;
   font-weight: 400;
-  color: #000;
-  height: 100vh;
-  margin: 0px;
+  color: var(--text-color);
+  background: var(--bg-color);
+  min-height: 100%;
+  height: 100%;
+  margin: 0;
   padding: 0;
+}
+html.dark-mode,
+body.dark-mode {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-color);
+  z-index: -1;
+  /* behind all content */
+}
+
+.content {
+  height: 100vh;
 }
 
 h1,
@@ -24,7 +53,7 @@ h3 {
 }
 
 a {
-  color: #000;
+  color: var(--text-color);
   text-decoration: none;
   margin: 0px;
 }
@@ -44,6 +73,19 @@ img {
   font-size: 20px;
 }
 
+.collapsible {
+  overflow: hidden;
+  cursor: pointer;
+  max-height: 0px;
+}
+.collapsible ul {
+  list-style-type: none;
+  margin: 0px;
+}
+.collapsible ul li {
+  margin: 7px;
+}
+
 .text-heading {
   display: flex;
   flex-direction: column;
@@ -58,7 +100,7 @@ img {
   padding: 20px 40px 0px 40px;
 }
 .series .series-title {
-  margin-top: 20px;
+  margin: 20px;
   font-size: 24px;
   font-weight: 700;
 }
@@ -72,7 +114,6 @@ img {
     margin: 20px;
   }
   .series .series-title {
-    margin: 0px;
     margin-bottom: 20px;
   }
 }
@@ -141,7 +182,7 @@ img {
 .container {
   display: flex;
   flex-direction: row;
-  height: 100%;
+  height: 100px;
 }
 .container .blade {
   position: sticky;
@@ -152,7 +193,13 @@ img {
   flex-direction: column;
   justify-content: flex-end;
   width: 250px;
+  color: var(--text-color);
+  background-color: var(--bg-color);
   min-width: 100px;
+}
+.container .blade.dark-mode {
+  --bg-color: #000000;
+  --text-color: #ffffff;
 }
 .container .blade .title {
   position: fixed;
@@ -165,12 +212,41 @@ img {
 .container .blade .main-menu {
   position: fixed;
   left: 20px;
-  top: 132px;
+  top: 140px;
   font-size: 24px;
   z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+.container .blade .main-menu .brand {
+  margin: 7px;
 }
 .container .blade .fill {
   margin: auto;
+}
+.container .blade .menu-container {
+  display: flex;
+  flex-direction: row;
+}
+.container .blade .menu-container .spacer {
+  margin: auto;
+}
+.container .blade .menu-container .menu-button {
+  z-index: 1000;
+}
+.container .blade .menu-container .collapsible {
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+.container .blade .menu-container .menu-button {
+  float: right;
+  margin-left: 5px;
+}
+.container .blade .menu-container .menu-button:after {
+  content: "+";
+}
+.container .blade .menu-container .open:after {
+  content: "−";
 }
 .container .blade .end-menu {
   visibility: visible;
@@ -184,17 +260,10 @@ img {
   margin-bottom: 20px;
   z-index: 0;
 }
-.container .blade .end-menu a {
+.container .blade .end-menu a,
+.container .blade .end-menu div {
   margin: 0px;
   margin-right: 10px;
-}
-.container .blade div {
-  display: flex;
-  top: 0;
-  flex-direction: column;
-}
-.container .blade div a {
-  margin: 10px;
 }
 .container .content {
   display: flex;
@@ -202,11 +271,12 @@ img {
   justify-content: start;
   align-items: start;
   width: 100%;
+  height: 100vh;
 }
 
 /* Navigation */
 .nav {
-  background-color: #000;
+  background-color: #ffffff;
 }
 
 .collapse {
@@ -230,6 +300,32 @@ img {
 
 .icon {
   width: 35px;
+}
+
+.icon-splash {
+  width: 35px;
+}
+
+body.dark-mode .icon {
+  filter: invert(100%);
+}
+body.dark-mode .icon-splash {
+  filter: none;
+}
+body.dark-mode .icon-big {
+  transform: scaleX(-1);
+}
+body.dark-mode .icon-bigger {
+  transform: scaleX(-1);
+  filter: none;
+}
+
+.icon-big {
+  width: 52px;
+}
+
+.icon-bigger {
+  width: 77px;
 }
 
 /* Grid & Masonry */
@@ -270,6 +366,14 @@ img {
 }
 
 /* Modal */
+body.light-mode .modal {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+body.dark-mode .modal {
+  background-color: rgba(10, 10, 10, 0.9);
+}
+
 .modal {
   display: flex;
   flex-direction: column;
@@ -281,8 +385,7 @@ img {
   top: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(255, 255, 255, 0.95);
-  opacity: 0;
+  background-color: rgba(5, 5, 5, 0.5);
   transition: opacity 0.5s ease;
   animation: fadein 0.25s;
 }
@@ -291,12 +394,12 @@ img {
   flex-direction: row;
   min-width: 100px;
   justify-content: space-between;
-  width: 450px;
+  width: 500px;
 }
 .modal #caption {
   display: flex;
   text-align: center;
-  color: #000;
+  color: var(--text-color);
   font-size: 20px;
 }
 
@@ -339,8 +442,8 @@ img {
   display: flex;
   background: none;
   border: none;
-  color: black;
   font-size: 20px;
+  color: var(--text-color);
   font-family: "Atkinson Hyperlegible Next", sans-serif;
   cursor: pointer;
   outline: none;
@@ -410,7 +513,7 @@ img {
     align-items: center;
     padding: 0px;
     top: 0px;
-    min-height: 350px;
+    min-height: 390px;
     left: 0px;
     width: 100%;
     min-width: 0px;
@@ -427,6 +530,17 @@ img {
     text-align: center;
     left: 0px;
     top: 40px;
+  }
+  .container .blade .main-menu .menu-container {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .container .blade .main-menu .menu-button {
+    display: none;
+  }
+  .container .blade .main-menu .spacer {
+    display: none;
   }
   .container .blade .main-menu a {
     margin: 6px;
@@ -470,7 +584,6 @@ img {
   }
   .sticky-footer button {
     margin: 12px;
-    border: none;
     background: none;
     color: inherit;
     border: none;
@@ -523,7 +636,7 @@ img {
   }
 }
 .splash {
-  background-color: #000;
+  background-color: #ffffff;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
