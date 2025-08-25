@@ -100,7 +100,7 @@ img {
   padding: 20px 40px 0px 40px;
 }
 .series .series-title {
-  margin: 20px;
+  margin-top: 10px;
   font-size: 24px;
   font-weight: 700;
 }
@@ -207,7 +207,7 @@ img {
 }
 .container .blade .title {
   position: fixed;
-  top: 32px;
+  top: 28px;
   left: 28px;
   font-weight: 600;
   font-size: 32px;
@@ -317,7 +317,7 @@ body.dark-mode .icon-splash {
   filter: none;
 }
 body.dark-mode .icon-big {
-  transform: scaleX(-1);
+  transform: scaleX(-1) translate(0, 5px);
 }
 body.dark-mode .icon-bigger {
   transform: scaleX(-1);
@@ -509,7 +509,7 @@ body.dark-mode .modal {
     align-items: center;
     padding: 0px;
     top: 0px;
-    min-height: 390px;
+    min-height: 405px;
     left: 0px;
     width: 100%;
     min-width: 0px;
@@ -518,7 +518,7 @@ body.dark-mode .modal {
     position: relative;
     text-align: center;
     left: 0px;
-    max-width: 80%;
+    max-width: 60%;
     font-size: 32px;
   }
   .container .blade .main-menu {
