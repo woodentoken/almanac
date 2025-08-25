@@ -21,7 +21,7 @@
     <div class = "container">
       <div class="blade">
         <div class = "title">
-          <img src="/static/icons/almanac_logo.svg" alt="almanac logo" id="toggle" class="icon icon-big">
+          <img src="/static/icons/almanac_logo.svg" alt="almanac logo" id="toggle" class="icon icon-big clickable">
           almanac photography
         </div>
 
@@ -34,10 +34,12 @@
             <span class="menu-button"></span>
           </div>
           <div class="collapsible">
-            <ul>
-              <li><a href="{{ url_for('series_japan', series_name='japan') }}">japan</a></li>
-              <li><a href="{{ url_for('series_westing', series_name='westing') }}">westing</a></li>
-            </ul>
+            <div>
+              <ul>
+                <li><a href="{{ url_for('series_japan', series_name='japan') }}">japan</a></li>
+                <li><a href="{{ url_for('series_westing', series_name='westing') }}">westing</a></li>
+              </ul>
+            </div>
           </div>
           <a href="{{ url_for('about') }}" class="brand">about</a>
           <a href="{{ url_for('contact') }}" class="brand">contact</a>

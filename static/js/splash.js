@@ -23,7 +23,6 @@ function preloadImages() {
     img.onload = function() {
       loadedCount++;
       if (loadedCount === totalImages) {
-        console.log('All images preloaded successfully.');
         changeImage();
       }
     };
@@ -41,7 +40,6 @@ function preloadImages() {
 function changeImage() {
   var el = document.getElementById('splash');
   el.style.backgroundImage = `url("${images[i]}")`;
-  console.log('Changing image to:', images[i]);
   i = (i + 1) % images.length;
   setTimeout(changeImage, time);
 }

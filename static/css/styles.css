@@ -178,6 +178,10 @@ img {
     padding: 0px;
   }
 }
+.clickable {
+  cursor: pointer;
+}
+
 /* Layout & Containers */
 .container {
   display: flex;
@@ -236,7 +240,6 @@ img {
 }
 .container .blade .menu-container .collapsible {
   overflow: hidden;
-  transition: max-height 0.2s ease-out;
 }
 .container .blade .menu-container .menu-button {
   float: right;
