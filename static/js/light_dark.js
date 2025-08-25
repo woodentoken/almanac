@@ -1,3 +1,16 @@
+(function() {
+  try {
+    // Check saved preference
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark-mode' || (!theme && window.matchMedia('(prefers-color-scheme: dark-mode)').matches)) {
+      document.documentElement.classList.add('dark-mode');
+    } else {
+      document.documentElement.classList.remove('dark-mode');
+    }
+  } catch (e) {}
+})();
+
+
 document.addEventListener('DOMContentLoaded', function() {
   const toggle = document.getElementById('toggle');
   const body = document.body;

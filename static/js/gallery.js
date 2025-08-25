@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
     modal.style.display = 'flex';
     modal.classList.add('show');
 
-    console.log('Opening modal for image index:', currentIndex);
+    // console.log('Opening modal for image index:', currentIndex);
 
     const lowRes = getLowResUrl(images[currentIndex].src);
     modalImg.src = lowRes;
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const fullImage = new Image();
     fullImage.src = fullRes;
     fullImage.onload = function () {
-      console.log('Full image loaded:', fullRes);
+      // console.log('Full image loaded:', fullRes);
       modalImg.src = fullRes;
       modalImg.contextmenu = false;
       modalImg.addEventListener('contextmenu', function (e) {

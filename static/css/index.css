@@ -291,6 +291,8 @@ img {
 
 .icon {
   width: 35px;
+  height: 35px;
+  font-size: 8px;
 }
 
 .icon-splash {
@@ -313,10 +315,12 @@ body.dark-mode .icon-bigger {
 
 .icon-big {
   width: 52px;
+  height: 52px;
 }
 
 .icon-bigger {
   width: 77px;
+  height: 77px;
 }
 
 /* Grid & Masonry */

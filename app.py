@@ -1,15 +1,23 @@
 import os
 import sqlite3
 from datetime import datetime
-from livereload import Server
 from dotenv import load_dotenv
 
-from flask import Flask, flash, redirect, render_template, request, url_for, abort
+from flask import (
+    Flask,
+    flash,
+    redirect,
+    render_template,
+    request,
+    url_for,
+    abort,
+    send_from_directory,
+    make_response,
+)
 import markdown
 from werkzeug.utils import secure_filename
 
 BLOG_DIR = "posts"
-
 
 app = Flask(__name__)
 
@@ -28,6 +36,17 @@ else:
     USE_LIVERELOAD = False
 
 
+# --- Static file caching ---
+@app.route("/static/<path:filename>")
+def static_files(filename):
+    response = make_response(send_from_directory("static", filename))
+    print(f"Serving static file: {filename}")
+    # Cache for 1 year
+    response.headers["Cache-Control"] = "public, max-age=31536000, immutable"
+    return response
+
+
+# --- Routes ---
 @app.route("/")
 def splash():
     return render_template("splash.html")
@@ -91,6 +110,7 @@ def blog_post(slug):
     )
 
 
+# --- Run server ---
 if __name__ == "__main__":
     if USE_LIVERELOAD:
         from livereload import Server
