@@ -196,7 +196,7 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  width: 250px;
+  width: 275px;
   color: var(--text-color);
   background-color: var(--bg-color);
   min-width: 100px;
@@ -299,6 +299,17 @@ img {
   width: 35px;
 }
 
+.icon-big {
+  width: 52px;
+  height: 52px;
+  transform: translate(0, 5px);
+}
+
+.icon-bigger {
+  width: 77px;
+  height: 77px;
+}
+
 body.dark-mode .icon {
   filter: invert(100%);
 }
@@ -311,16 +322,6 @@ body.dark-mode .icon-big {
 body.dark-mode .icon-bigger {
   transform: scaleX(-1);
   filter: none;
-}
-
-.icon-big {
-  width: 52px;
-  height: 52px;
-}
-
-.icon-bigger {
-  width: 77px;
-  height: 77px;
 }
 
 /* Grid & Masonry */
