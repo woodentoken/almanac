@@ -118,6 +118,10 @@
   }
 }
 
+.space {
+  margin: 40px;
+}
+
 /* Navigation */
 .nav {
   background-color: $light-bg;
@@ -175,6 +179,7 @@ body.dark-mode {
 .masonry {
   width: 100%;
   box-sizing: border-box;
+  padding-top: 32px;
 }
 
 .grid-sizer {
@@ -185,7 +190,7 @@ body.dark-mode {
   float: left;
   box-sizing: border-box;
   width: calc((100% - #{$grid-num} * #{$grid-pad}) / #{$grid-num});
-  padding-top: 32px;
+  padding-bottom: 32px;
 }
 
 .grid-item--bigger {
@@ -435,8 +440,8 @@ body.dark-mode .modal {
     }
   }
 
-  .content {
-    padding-bottom: 30px;
+  .body {
+    padding-bottom: 80px;
   }
 
   .sticky-footer {
