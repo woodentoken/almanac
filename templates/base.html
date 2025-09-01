@@ -6,7 +6,6 @@
     <title>{% block title %}almanac photography{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" />
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='icons/favicon.ico') }}">
     <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='icons/favicon.svg') }}">
@@ -30,7 +29,6 @@
           <a href="{{ url_for('portfolio') }}" class="brand">portfolio</a>
           <div class="menu-container brand">
             <a href="{{ url_for('series') }}" class="brand2">series</a>
-            <!-- <div class="spacer"></div> -->
             <span class="menu-button"></span>
           </div>
           <div class="collapsible">
@@ -70,7 +68,6 @@
         {% endwith %}
 
         {% block content %}{% endblock %}
-        <div class=space></div>
       </div>
 
     </div>

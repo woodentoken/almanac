@@ -34,7 +34,6 @@ if os.environ.get("FLASK_ENV") == "development":
     app.jinja_env.auto_reload = True
     USE_LIVERELOAD = True
 else:
-    # app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///emails.db"
     USE_LIVERELOAD = False
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///emails.db"

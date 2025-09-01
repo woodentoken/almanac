@@ -14,7 +14,6 @@ body {
   min-height: 100%;
   height: 100%;
   margin: 0;
-  // padding: 0;
 
   &.dark-mode {
     --bg-color: #{$dark-bg};
@@ -125,7 +124,6 @@ img {
   display: flex;
   justify-content: left;
   font-size: 18px;
-  // margin: 0px 0px 15px 0px;
 }
 
 .info_end {
