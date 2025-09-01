@@ -8,6 +8,10 @@ primary_region = 'ewr'
 
 [build]
 
+[mounts]
+source = 'almanac_data'
+destination = '/app/instance'
+
 [http_service]
 internal_port = 8080
 force_https = true

@@ -14,6 +14,7 @@ from flask import (
     send_from_directory,
     make_response,
 )
+from flask_sqlalchemy import SQLAlchemy
 import markdown
 from werkzeug.utils import secure_filename
 
@@ -33,7 +34,37 @@ if os.environ.get("FLASK_ENV") == "development":
     app.jinja_env.auto_reload = True
     USE_LIVERELOAD = True
 else:
+    # app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///emails.db"
     USE_LIVERELOAD = False
+
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///emails.db"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+
+db = SQLAlchemy(app)
+
+
+# Define Email model
+class Email(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    address = db.Column(db.String(120), unique=True, nullable=False)
+
+
+with app.app_context():
+    db.create_all()  # Create tables if they don't exist
+
+
+@app.route("/subscribe", methods=["POST"])
+def subscribe():
+    email_input = request.form.get("email")
+    if email_input:
+        new_email = Email(address=email_input)
+        try:
+            db.session.add(new_email)
+            db.session.commit()
+        except:
+            db.session.rollback()
+    return redirect("/contact")  # send them back to homepage (or any page you like)
 
 
 # --- Static file caching ---

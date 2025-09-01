@@ -20,4 +20,5 @@ dependencies = [
   "gunicorn>=23.0.0",
   "markdown>=3.8.2",
   "markdown-extensions>=0.0.1",
+  "flask-sqlalchemy>=3.1.1",
 ]
