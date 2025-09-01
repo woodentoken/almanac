@@ -109,7 +109,7 @@ img {
 }
 .series .series-blurb {
   margin: 0px;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 @media (max-width: 600px) {
@@ -618,7 +618,40 @@ body.dark-mode .modal {
     opacity: 1;
     animation: fadein 1.5s;
   }
+  .email {
+    margin: auto;
+  }
+  .email-form input {
+    margin: auto;
+  }
+  .email-form button {
+    margin: auto;
+  }
 }
+.email-form {
+  display: flex;
+  flex-direction: column;
+}
+.email-form input {
+  width: 300px;
+  font-size: 18px;
+  border: none;
+  border-bottom: 1px solid var(--text-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+.email-form button {
+  font-size: 16px;
+  color: var(--bg-color);
+  background-color: var(--text-color);
+  border: none;
+  font: inherit;
+  width: 100px;
+  margin-top: 8px;
+  padding: 2px 4px;
+  cursor: pointer;
+}
+
 /* Keyframes */
 @keyframes fadein {
   from {
