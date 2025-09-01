@@ -4,7 +4,7 @@
 #
 
 app = 'almanac-photography'
-primary_region = 'ewr'
+primary_region = 'iad'
 
 [build]
 
@@ -17,7 +17,10 @@ internal_port = 8080
 force_https = true
 auto_stop_machines = 'stop'
 auto_start_machines = true
-min_machines_running = 0
+min_machines_running = 1
+max_machines = 1
+
+[[services]]
 processes = ['app']
 
 [[vm]]
