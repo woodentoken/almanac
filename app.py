@@ -37,43 +37,43 @@ else:
     USE_LIVERELOAD = False
 
 
-database_url = os.environ.get("DATABASE_URL")
-if not database_url:
-    database_url = "sqlite:///emails.db"  # Fallback to SQLite for local dev
-    print("using local database file")
-    app.config["SQLALCHEMY_DATABASE_URI"] = database_url
+# database_url = os.environ.get("DATABASE_URL")
+# if not database_url:
+#     database_url = "sqlite:///emails.db"  # Fallback to SQLite for local dev
+#     print("using local database file")
+#     app.config["SQLALCHEMY_DATABASE_URI"] = database_url
 
-if database_url.startswith("postgres://"):
-    database_url = database_url.replace("postgres://", "postgresql://", 1)
-    app.config["SQLALCHEMY_DATABASE_URI"] = database_url
+# if database_url.startswith("postgres://"):
+#     database_url = database_url.replace("postgres://", "postgresql://", 1)
+#     app.config["SQLALCHEMY_DATABASE_URI"] = database_url
 
-app.config["SQLALCHEMY_DATABASE_URI"] = database_url
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+# app.config["SQLALCHEMY_DATABASE_URI"] = database_url
+# app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-db = SQLAlchemy(app)
+# db = SQLAlchemy(app)
 
 
 # Define Email model
-class Email(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    address = db.Column(db.String(120), unique=True, nullable=False)
+# class Email(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     address = db.Column(db.String(120), unique=True, nullable=False)
 
 
-with app.app_context():
-    db.create_all()  # Create tables if they don't exist
+# with app.app_context():
+#     db.create_all()  # Create tables if they don't exist
 
 
-@app.route("/subscribe", methods=["POST"])
-def subscribe():
-    email_input = request.form.get("email")
-    if email_input:
-        new_email = Email(address=email_input)
-        try:
-            db.session.add(new_email)
-            db.session.commit()
-        except:
-            db.session.rollback()
-    return redirect("/contact")  # send them back to homepage (or any page you like)
+# @app.route("/subscribe", methods=["POST"])
+# def subscribe():
+#     email_input = request.form.get("email")
+#     if email_input:
+#         new_email = Email(address=email_input)
+#         try:
+#             db.session.add(new_email)
+#             db.session.commit()
+#         except:
+#             db.session.rollback()
+#     return redirect("/contact")  # send them back to homepage (or any page you like)
 
 
 # --- Static file caching ---
