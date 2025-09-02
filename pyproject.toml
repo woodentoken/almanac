@@ -22,4 +22,5 @@ dependencies = [
   "markdown-extensions>=0.0.1",
   "flask-sqlalchemy>=3.1.1",
   "psycopg2-binary>=2.9.10",
+  "flask-mail>=0.10.0",
 ]

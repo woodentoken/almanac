@@ -15,6 +15,7 @@ from flask import (
     make_response,
 )
 from flask_sqlalchemy import SQLAlchemy
+from flask_mail import Mail, Message
 import markdown
 from werkzeug.utils import secure_filename
 
