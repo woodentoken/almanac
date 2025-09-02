@@ -1,5 +1,5 @@
 import os
-import sqlite3
+import psycopg2
 from datetime import datetime
 from dotenv import load_dotenv
 
@@ -36,9 +36,19 @@ if os.environ.get("FLASK_ENV") == "development":
 else:
     USE_LIVERELOAD = False
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///emails.db"
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
+database_url = os.environ.get("DATABASE_URL")
+if not database_url:
+    database_url = "sqlite:///emails.db"  # Fallback to SQLite for local dev
+    print("using local database file")
+    app.config["SQLALCHEMY_DATABASE_URI"] = database_url
+
+if database_url.startswith("postgres://"):
+    database_url = database_url.replace("postgres://", "postgresql://", 1)
+    app.config["SQLALCHEMY_DATABASE_URI"] = database_url
+
+app.config["SQLALCHEMY_DATABASE_URI"] = database_url
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
 

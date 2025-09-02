@@ -4,23 +4,16 @@
 #
 
 app = 'almanac-photography'
-primary_region = 'iad'
+primary_region = 'ewr'
 
 [build]
-
-[mounts]
-source = 'almanac_data'
-destination = '/app/instance'
 
 [http_service]
 internal_port = 8080
 force_https = true
 auto_stop_machines = 'stop'
 auto_start_machines = true
-min_machines_running = 1
-max_machines = 1
-
-[[services]]
+min_machines_running = 0
 processes = ['app']
 
 [[vm]]
