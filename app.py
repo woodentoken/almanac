@@ -2,6 +2,7 @@ import os
 import psycopg2
 from datetime import datetime
 from dotenv import load_dotenv
+import requests
 
 from flask import (
     Flask,
@@ -19,7 +20,8 @@ from flask_mail import Mail, Message
 import markdown
 from werkzeug.utils import secure_filename
 
-BLOG_DIR = "posts"
+GOOGLE_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbz4WU-9_xsTaQ4XwMyn6JuZF8SpskYg9L8o4xmPKjTxlV9Yowcx0DV5ULwlrJ_Mmh0_AQ/exec"
+SECRET_TOKEN = "goldbug"
 
 app = Flask(__name__)
 
@@ -36,6 +38,21 @@ if os.environ.get("FLASK_ENV") == "development":
     USE_LIVERELOAD = True
 else:
     USE_LIVERELOAD = False
+
+
+@app.route("/submit-email", methods=["POST"])
+def submit_email():
+    email = request.form.get("email")
+
+    # Send to Google Sheets
+    res = requests.post(GOOGLE_WEBAPP_URL, json={"email": email, "token": SECRET_TOKEN})
+
+    if res.ok:
+        flash("your email was saved.")
+    else:
+        flash("oops, something went wrong.")
+
+    return redirect("/contact")  # or render_template(...)
 
 
 # database_url = os.environ.get("DATABASE_URL")
