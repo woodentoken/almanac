@@ -123,6 +123,7 @@ img {
 .info {
   display: flex;
   justify-content: left;
+  min-width: 200px;
   font-size: 18px;
 }
 
@@ -149,7 +150,7 @@ img {
   font-size: 16px;
 }
 .text-content .information-container {
-  min-width: 50px;
+  min-width: 200px;
   max-width: 400px;
   display: flex;
   padding: 0px 32px 0px 0px;
@@ -158,14 +159,22 @@ img {
 .text-content .information-container .caption {
   text-align: center;
   font-size: 15px;
-  margin-bottom: 15px;
-  margin-top: 15px;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 @media (max-width: 1200px) {
   .text-content {
     flex-direction: column;
     padding: 0px;
+  }
+  .information-container {
+    max-width: 200px;
+    align-items: center;
+    padding: 0px;
+  }
+  .info {
+    max-width: 400px;
   }
 }
 @media (max-width: 600px) {
@@ -196,7 +205,7 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  width: 275px;
+  width: 305px;
   color: var(--text-color);
   background-color: var(--bg-color);
   min-width: 100px;
@@ -504,7 +513,7 @@ body.dark-mode .modal {
     width: calc((100% - 6 * 16px) * 2 / 3 + 2 * 16px);
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .container {
     flex-direction: column;
   }
@@ -523,7 +532,7 @@ body.dark-mode .modal {
     position: relative;
     text-align: center;
     left: 0px;
-    max-width: 60%;
+    max-width: 50%;
     font-size: 32px;
   }
   .container .blade .main-menu {

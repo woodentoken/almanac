@@ -123,6 +123,7 @@ img {
 .info {
   display: flex;
   justify-content: left;
+  min-width: 200px;
   font-size: 18px;
 }
 
@@ -152,18 +153,17 @@ img {
   }
 
   .information-container {
-    min-width: 50px;
+    min-width: 200px;
     max-width: 400px;
     display: flex;
     padding: 0px 32px 0px 0px;
     flex-direction: column;
 
-
     .caption {
       text-align: center;
       font-size: 15px;
-      margin-bottom: 15px;
-      margin-top: 15px;
+      margin-bottom: 5px;
+      margin-top: 5px;
     }
   }
 }
@@ -172,6 +172,17 @@ img {
   .text-content {
     flex-direction: column;
     padding: 0px;
+  }
+
+  .information-container {
+    max-width: 200px;
+    align-items: center;
+    padding: 0px;
+  }
+
+  .info {
+    // font-size: 16px;
+    max-width: 400px;
   }
 }
 
