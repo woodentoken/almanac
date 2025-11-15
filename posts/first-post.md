@@ -14,7 +14,7 @@ Proin vitae dapibus augue. In gravida scelerisque eros, nec finibus lorem molest
 print("Hello!!!, Flask + Markdown!")
 ```
 
-<pre markdown="1"> ```python def hello(): print("Hello, world!") ``` </pre> 
+<pre markdown="1"> ```python def hello(): print("Hello, world!") ``` </pre>
 
 <p style="text-align:center;">
     <img src="/static/images/crane.jpg" alt="Photo" style="width:800px; height:auto;" />
@@ -29,4 +29,3 @@ Euler's formula is \\(e^{i\pi} + 1 = 0\\).
 $$
 \int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
 $$
-
