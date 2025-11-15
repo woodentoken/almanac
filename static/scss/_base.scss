@@ -21,7 +21,6 @@ body {
   }
 }
 
-
 body::before {
   content: "";
   position: fixed;
@@ -80,7 +79,6 @@ img {
   }
 }
 
-
 .contact {
   flex-direction: column;
 }
@@ -88,6 +86,15 @@ img {
 .text-heading {
   display: flex;
   flex-direction: column;
+}
+
+#fullImage {
+  opacity: 0.2;
+  transition: opacity 0.33s ease-in;
+}
+
+#fullImage.loaded {
+  opacity: 1;
 }
 
 .series {
