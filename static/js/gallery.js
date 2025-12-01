@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const caption = document.getElementById("caption");
   const images = document.querySelectorAll(".grid-item");
   const loadedImages = new Set();
+  let minIndex = 0;
+  let maxIndex = images.length - 1;
   let currentIndex = 0;
 
   function getFullResUrl(url) {
@@ -50,6 +52,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // const lowRes = getLowResUrl(images[currentIndex].src);
     const fullRes = getFullResUrl(images[currentIndex].src);
 
+    // prefetch next and previous images (way smoother)
+    prefetchImage((currentIndex + 1) % images.length);
+    prefetchImage((currentIndex - 1) % images.length);
+
     if (loadedImages.has(fullRes)) {
       // If the image has been loaded before, skip to full-res loading
       modalImg.src = fullRes;
@@ -84,10 +90,6 @@ document.addEventListener("DOMContentLoaded", function () {
       requestAnimationFrame(() => {
         modalImg.classList.add("loaded");
       });
-
-      // prefetch next and previous images (way smoother)
-      prefetchImage((currentIndex + 1) % images.length);
-      prefetchImage((currentIndex - 1) % images.length);
     };
   }
 
@@ -113,6 +115,11 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   prevBtn.onclick = function () {
+    if (currentIndex === minIndex) {
+      loadImage(maxIndex);
+      currentIndex = maxIndex;
+      return;
+    }
     loadImage((currentIndex - 1) % images.length);
   };
 

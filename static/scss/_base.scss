@@ -88,14 +88,14 @@ img {
   flex-direction: column;
 }
 
-#fullImage {
-  opacity: 0.2;
-  transition: opacity 0.33s ease-in;
-}
+// #fullImage {
+//   opacity: 0.2;
+//   transition: opacity 0.33s ease-in;
+// }
 
-#fullImage.loaded {
-  opacity: 1;
-}
+// #fullImage.loaded {
+//   opacity: 1;
+// }
 
 .series {
   display: flex;
