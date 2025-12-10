@@ -6,7 +6,7 @@ static/images
 url.txt
 
 # no need to track generated css files
-static/css/
+# static/css/
 
 # C extensions
 *.so
