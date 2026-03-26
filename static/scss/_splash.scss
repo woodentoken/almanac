@@ -1,13 +1,26 @@
 @use "variables" as *;
 
-.splash {
-  background-color: $light-bg;
+.splash-layer {
+  position: absolute;
+  inset: 0;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  transition: opacity 1.0s ease;
+}
+
+.splash {
+  background-color: $light-bg;
+  position: relative;
   display: flex;
   justify-content: start;
   flex-direction: column;
+
+  .menu-container,
+  .splash-end-menu {
+    position: relative;
+    z-index: 1;
+  }
 
   .menu-container {
     display: flex;
@@ -15,7 +28,7 @@
     flex-direction: column;
     align-items: center;
     margin: 32px 72px;
-    font-size: 48px;
+    font-size: 40px;
 
     .title {
       color: #fff;
@@ -34,7 +47,7 @@
     }
 
     a {
-      font-size: 32px;
+      font-size: 25px;
       color: #fff;
       margin: 20px;
     }
@@ -53,7 +66,7 @@
   margin-top: auto;
 
   a {
-    font-size: 24px;
+    font-size: 20px;
     color: #fff;
     margin: 10px;
     text-decoration: none;
