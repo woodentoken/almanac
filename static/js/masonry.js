@@ -20,13 +20,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   imagesLoaded(grid, () => {
     msnry.layout();
+    spinner.remove();
+    grid.style.opacity = '1';
   });
 });
 
 window.addEventListener('resize', () => {
 
   if (msnry) {
-    console.log("masonry layout")
     msnry.layout();
   }
 });

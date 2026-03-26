@@ -12,6 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
   let maxIndex = images.length - 1;
   let currentIndex = 0;
 
+  modalImg.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+    return false;
+  });
+
   function getFullResUrl(url) {
     return url.replace(/w-\d+,?/g, "");
   }
@@ -46,28 +51,26 @@ document.addEventListener("DOMContentLoaded", function () {
     modal.classList.remove("show");
   }
 
-  function loadImage(index) {
+  function loadImage(index, showCaption=false) {
     currentIndex = index;
     modalImg.classList.remove("loaded");
+    if (modalSpinner) modalSpinner.style.display = "block";
 
     // const lowRes = getLowResUrl(images[currentIndex].src);
     const fullRes = getFullResUrl(images[currentIndex].src);
 
     // prefetch next and previous images (way smoother)
     prefetchImage((currentIndex + 1) % images.length);
-    prefetchImage((currentIndex - 1) % images.length);
+    prefetchImage((currentIndex - 1 + images.length) % images.length);
 
     if (loadedImages.has(fullRes)) {
       // If the image has been loaded before, skip to full-res loading
       modalImg.src = fullRes;
-      modalImg.contextmenu = false;
-      modalImg.addEventListener("contextmenu", function (e) {
-        e.preventDefault();
-        return false;
-      });
 
-      caption.textContent = images[currentIndex].alt;
+      if (showCaption) caption.textContent = images[currentIndex].alt;
+
       requestAnimationFrame(() => {
+        if (modalSpinner) modalSpinner.style.display = "none";
         modalImg.classList.add("loaded");
       });
       return; // exit early
@@ -79,16 +82,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     fullImage.onload = function () {
       modalImg.src = fullRes;
-      modalImg.contextmenu = false;
-      modalImg.addEventListener("contextmenu", function (e) {
-        e.preventDefault();
-        return false;
-      });
-      caption.textContent = images[currentIndex].alt;
+      if (showCaption) caption.textContent = images[currentIndex].alt;
 
       loadedImages.add(fullRes);
 
       requestAnimationFrame(() => {
+        if (modalSpinner) modalSpinner.style.display = "none";
         modalImg.classList.add("loaded");
       });
     };
@@ -108,9 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
       } else if (event.key === "ArrowRight") {
         nextBtn.click();
       } else if (event.key === "Escape") {
-        modal.style.display = "none";
-        modalImg.src = "";
-        modal.classList.remove("show");
+        closeModal();
       }
     }
   });

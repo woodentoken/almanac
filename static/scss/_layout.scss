@@ -1,6 +1,5 @@
 @use "variables" as *;
 
-
 .clickable {
   cursor: pointer;
 }
@@ -60,7 +59,8 @@
       display: flex;
       flex-direction: row;
 
-      a {}
+      a {
+      }
 
       .spacer {
         margin: auto;
@@ -195,7 +195,9 @@ body.dark-mode {
 }
 
 .grid-item--bigger {
-  width: calc(((100% - #{$grid-num} * #{$grid-pad}) * 2 / #{$grid-num}) + #{$grid-pad});
+  width: calc(
+    ((100% - #{$grid-num} * #{$grid-pad}) * 2 / #{$grid-num}) + #{$grid-pad}
+  );
 }
 
 .grid-item--series {
@@ -343,7 +345,7 @@ body.dark-mode .modal {
   font-family: $font-stack;
   cursor: pointer;
   outline: none;
-  opacity: 0.40;
+  opacity: 0.4;
   transition: opacity 0.2s;
   z-index: 10;
 }
@@ -372,7 +374,7 @@ body.dark-mode .modal {
     top: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.0;
+    opacity: 0;
     z-index: 1;
     color: white;
     font-weight: 600;
@@ -403,7 +405,7 @@ body.dark-mode .modal {
   }
 
   .grid-item--bigger {
-    width: calc(((100% - 6 * #{$grid-pad-sm}) * 2 / 3) + 2*#{$grid-pad-sm});
+    width: calc(((100% - 6 * #{$grid-pad-sm}) * 2 / 3) + 2 *#{$grid-pad-sm});
   }
 }
 
@@ -417,7 +419,7 @@ body.dark-mode .modal {
       align-items: center;
       padding: 0px;
       top: 0px;
-      min-height: 366px;
+      min-height: 350px;
       left: 0px;
       width: 100%;
       min-width: 0px;
@@ -435,7 +437,6 @@ body.dark-mode .modal {
         text-align: center;
         left: 0px;
         top: 40px;
-
 
         .menu-container {
           justify-content: center;
@@ -495,11 +496,12 @@ body.dark-mode .modal {
     left: 0;
     background-color: var(--bg-color);
     width: 100%;
-    height: 60px;
+    height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    padding: 10px 0px 10px 0px;
 
     button {
       margin: 12px;
@@ -518,7 +520,7 @@ body.dark-mode .modal {
   }
 
   .grid-sizer {
-    width: 100%
+    width: 100%;
   }
 
   .grid-item {
@@ -560,7 +562,6 @@ body.dark-mode .modal {
     }
   }
 }
-
 
 .email-form {
   display: flex;
