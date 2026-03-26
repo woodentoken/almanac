@@ -342,6 +342,7 @@ body.dark-mode .icon-bigger {
   width: 100%;
   box-sizing: border-box;
   padding-top: 32px;
+  transition: opacity 0.3s ease;
 }
 
 .grid-sizer {
@@ -375,6 +376,30 @@ body.dark-mode .icon-bigger {
   align-tracks: stretch;
 }
 
+/* Masonry Spinner */
+.masonry-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 80px 0;
+}
+.masonry-spinner::after {
+  content: "";
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--text-color);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: masonry-spin 0.7s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes masonry-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 /* Modal */
 body.light-mode .modal {
   background-color: rgba(255, 255, 255, 0.9);
@@ -421,8 +446,31 @@ body.dark-mode .modal {
   display: flex;
   width: 90vw;
   height: 95vh;
+  position: relative;
 }
 
+.modal-spinner {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--text-color);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: modal-spin 0.7s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes modal-spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
 .modal-content {
   display: flex;
   margin: auto;

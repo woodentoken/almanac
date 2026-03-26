@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const modal = document.getElementById("imageModal");
   const modalFrame = document.getElementById("modalFrame");
   const modalImg = document.getElementById("fullImage");
+  const modalSpinner = document.getElementById("modalSpinner");
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
   const caption = document.getElementById("caption");
