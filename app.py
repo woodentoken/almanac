@@ -87,6 +87,11 @@ def series_westing():
     return render_template("series_westing.html")
 
 
+@app.route("/series/black_white")
+def series_black_white():
+    return render_template("series_black_white.html")
+
+
 @app.route("/portfolio")
 def portfolio():
     return render_template("portfolio.html")
