@@ -243,11 +243,11 @@ body.dark-mode {
 /* Modal */
 
 body.light-mode .modal {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.95);
 }
 
 body.dark-mode .modal {
-  background-color: rgba(10, 10, 10, 0.9);
+  background-color: rgba(0, 0, 0, 0.95);
 }
 
 .modal {
@@ -280,6 +280,7 @@ body.dark-mode .modal {
     font-size: 20px;
   }
 }
+
 
 .modal.show {
   opacity: 1;
