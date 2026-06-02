@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<script src="{{ url_for('static', filename='js/gallery.js') }}"></script>
+<div class="masonry">
+  <div class="grid-sizer"></div>
+  <img src="https://ik.imagekit.io/ry1ze0vkn/portfolio/child.jpg?tr=w-1000,lqip" alt="Washington, D.C." class="grid-item grid-item--bigger">
+  <img src="https://ik.imagekit.io/ry1ze0vkn/portfolio/portfolio_11.jpg?tr=w-500,lqip" alt="Baltimore, Maryland" class="grid-item">
+  <img src="https://ik.imagekit.io/ry1ze0vkn/portfolio/portfolio_13.jpg?tr=w-500,lqip" alt="Grand Canyon, Arizona" class="grid-item">
+  <img src="https://ik.imagekit.io/ry1ze0vkn/portfolio/portfolio_14.jpg?tr=w-500,lqip" alt="Bolinas, California" class="grid-item">
+  <img src="https://ik.imagekit.io/ry1ze0vkn/portfolio/portfolio_17.jpg?tr=w-1000,lqip" alt="Jenner, California" class="grid-item grid-item--bigger">
+  <img src="https://ik.imagekit.io/ry1ze0vkn/portfolio/kite.jpg?tr=w-1000,lqip" alt="Fenwick Island, Delaware" class="grid-item grid-item--bigger">
+  <img src="https://ik.imagekit.io/ry1ze0vkn/portfolio/walk.jpg?tr=w-500,lqip" alt="Philadelphia, Pennslyvania" class="grid-item">
+</div>
+
+<div id="imageModal" class="modal" style="display: none;">
+  <div class="modal-shell" id="modalFrame">
+    <img class="modal-content" id="fullImage">
+    <div id="modalSpinner" class="modal-spinner"></div>
+  </div>
+  <div class="modal-wrapper">
+    <button id="prevBtn" class="nav-btn">previous</button>
+    <div id="caption" class="caption_bottom"></div>
+    <button id="nextBtn" class="nav-btn">next</button>
+  </div>
+</div>
+<!-- </div> -->
+
+<script src="{{ url_for('static', filename='js/masonry.pkgd.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/imagesloaded.pkgd.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/masonry.js') }}"></script>
+
+{% endblock %}

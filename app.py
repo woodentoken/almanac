@@ -92,9 +92,14 @@ def series_black_white():
     return render_template("series_black_white.html")
 
 
-@app.route("/portfolio")
-def portfolio():
-    return render_template("portfolio.html")
+@app.route("/place")
+def place():
+    return render_template("place.html")
+
+
+@app.route("/people")
+def people():
+    return render_template("people.html")
 
 
 @app.route("/contact")
